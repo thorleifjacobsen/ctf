@@ -142,17 +142,18 @@ Testing: ctf
 
 1, 2, 4, 5, 6, 8 and 9 all hits. So looking at why number 3 fails. Only 1 word. So I listen to it and hear the following 3 words `meltdown initiated execute` and to my surprise it hits on execute! Now I continue doing that on all of the missing, taking the lyrics and after a while I got them all.
 
-// 1 = pain
-// 2 = breakpoint
-// 3 = execute
-// 4 = buffer
-// 5 = stack
-// 6 = hardware
-// 7 = oiler
-// 8 = exception
-// 9 = assemble
-// 10 = blues
-
+```
+1 = pain
+2 = breakpoint
+3 = execute
+4 = buffer
+5 = stack
+6 = hardware
+7 = oiler
+8 = exception
+9 = assemble
+10 = blues
+```
 Pressing all the keys and open them one by one reveals after a while the password:
 
 ![reveal](elliotspasswordfinder-solved.png)
@@ -160,6 +161,8 @@ Pressing all the keys and open them one by one reveals after a while the passwor
 Now really knowing where to go from here I did google "hide files in wav" shows the second hit: [The Hacks of Mr. Robot: How to Hide Data in Audio Files](https://null-byte.wonderhowto.com/how-to/hacks-mr-robot-hide-data-audio-files-0164136/) which talks about "DeepSound"
 
 Quickly opening track 1 asked for a password, pasted in "GiveMyRegardsToElliott!" and got a file. Same for 2, nothing for 3-9 but 10 asked for password but did not work.
+
+![deepsound](deepsound.png)
 
 Looked at the two hidden files I found called "hidden-1.png" and "hidden-2.png", exittool shows a comment on the first file `Split the difference...`. So I open up a diff checker [Image Diff Checker](https://www.diffchecker.com/image-compare/) and got this.
 
