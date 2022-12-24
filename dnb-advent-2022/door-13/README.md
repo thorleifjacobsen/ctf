@@ -1,3 +1,23 @@
+# Challenge
+
+The Grinch is trying to get in on the action, can you find his secret?
+
+Here have a binary!
+
+https://htbbinaries.z1.web.core.windows.net/grinchisbad
+
+An due to popular demand:
+
+https://htbbinaries.z1.web.core.windows.net/libc.gz
+
+And you can test out your efforts here:
+
+nc grinchisbad.norwayeast.azurecontainer.io 2424
+
+> **Hint:** An oldie, but goldie!
+
+# Writeup
+
 I started using strings. Multiple flags occured. I would not test all these. I then started Ghidra to dissasemble and I found this function.
 
 ```cpp
