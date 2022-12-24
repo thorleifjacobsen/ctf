@@ -1,3 +1,16 @@
+# Challenge
+
+So you really want to get tickets for DJ Oiler's Monster Bash at Santa's Rave Party.
+
+I guess you'd better head on over to:
+
+http://santasticketoffice.norwayeast.azurecontainer.io
+
+before they sell out... You really don't want to miss out on DJ Oiler and DrCiRCUiT and the Stack Tracers!
+
+> **Hint:** So this seems strangely familiar, yet differen't... And btw you may need to consult Allsafe Cybersecurity's 1337 guy down the line... or not who knows :)
+
+# Writeup
 
 Started with exiftool on image from the website, nothing! Used whatweb on the site and it clearly shows apache 2.4.9.
 
@@ -83,7 +96,9 @@ Comment                         : 64->47->www`
 
 Gobuster quickly found /promo on the website where I found the .cue and .bin files. Used PowerISO to extract the wav files which. Exiftool or steghide (with password "CHRISTMAS") did not work. So started soon enough on the santa image. URL was base64 decoded, then rot47 and I got the following url: `http://elliotspasswordfinder.norwayeast.azurecontainer.io`
 
-10 tracks, 10 keys, after a while I build a quick bruteforce script as I had nothing to go on here. I tried different words, from the website. Lots of different stuff, suddenly I had a hit on our main guy DJ Oiler! "oiler" was the 7th key. So I tried different people I know. Even WCH. Nothing.
+![elliots password finder](elliotspasswordfinder.png)
+
+10 tracks, 10 keys, after a while I build a [quick bruteforce script](brute.js) as I had nothing to go on here. I tried different words, from the website. Lots of different stuff, suddenly I had a hit on our main guy DJ Oiler! "oiler" was the 7th key. So I tried different people I know. Even WCH. Nothing.
 
 With a loss of stuff to try I tried the names of all the songs. And here we go! 
 
@@ -127,9 +142,22 @@ Testing: ctf
 
 1, 2, 4, 5, 6, 8 and 9 all hits. So looking at why number 3 fails. Only 1 word. So I listen to it and hear the following 3 words `meltdown initiated execute` and to my surprise it hits on execute! Now I continue doing that on all of the missing, taking the lyrics and after a while I got them all.
 
-Pressing all the keys and open them one by one reveals after a while the password: `GiveMyRegardsToElliott!`.
+// 1 = pain
+// 2 = breakpoint
+// 3 = execute
+// 4 = buffer
+// 5 = stack
+// 6 = hardware
+// 7 = oiler
+// 8 = exception
+// 9 = assemble
+// 10 = blues
 
-Googling "hide files in wav" shows the second hit: [The Hacks of Mr. Robot: How to Hide Data in Audio Files](https://null-byte.wonderhowto.com/how-to/hacks-mr-robot-hide-data-audio-files-0164136/) which talks about "DeepSound"
+Pressing all the keys and open them one by one reveals after a while the password:
+
+![reveal](elliotspasswordfinder-solved.png)
+
+Now really knowing where to go from here I did google "hide files in wav" shows the second hit: [The Hacks of Mr. Robot: How to Hide Data in Audio Files](https://null-byte.wonderhowto.com/how-to/hacks-mr-robot-hide-data-audio-files-0164136/) which talks about "DeepSound"
 
 Quickly opening track 1 asked for a password, pasted in "GiveMyRegardsToElliott!" and got a file. Same for 2, nothing for 3-9 but 10 asked for password but did not work.
 
