@@ -1,0 +1,21 @@
+Foremost version 1.5.7 by Jesse Kornblum, Kris Kendall, and Nick Mikus
+Audit File
+
+Foremost started at Sun Dec 11 01:05:19 2022
+Invocation: foremost dj-oilers-theme.mp3 
+Output directory: /home/toffe/Projects/dnb-julekalender-2022/door-11/output
+Configuration file: /etc/foremost.conf
+------------------------------------------------------------------
+File: dj-oilers-theme.mp3
+Start: Sun Dec 11 01:05:19 2022
+Length: 2 MB (2126724 bytes)
+ 
+Num	 Name (bs=512)	       Size	 File Offset	 Comment 
+
+Finish: Sun Dec 11 01:05:19 2022
+
+0 FILES EXTRACTED
+	
+------------------------------------------------------------------
+
+Foremost finished at Sun Dec 11 01:05:19 2022

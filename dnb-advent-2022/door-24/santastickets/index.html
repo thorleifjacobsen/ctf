@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Santa's Ticket Office</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: black;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.5);
+            z-index: 2;
+        }
+
+        .overlay p {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            color: black;
+            background-color: #ff0080;
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            padding: 20px;
+        }
+
+        .media-body h3 {
+            color: white;
+        }
+
+        .media-body p {
+            color: #00ffff;
+        }
+
+        .btn-primary {
+            background-color: #00ffff;
+            border-color: #00ffff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0080ff;
+            border-color: #0080ff;
+        }
+
+        canvas {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center text-white">Welcome to Santa's Ticket Office</h1>
+        <h2 class="text-center text-white">Upcoming Events:</h2>
+        <ul class="list-unstyled">
+            <li class="media mt-5 position-relative">
+                <img src="santa.png" class="mr-3" alt="Santa's Rave" width="400">
+                <div class="media-body">
+                    <h3 class="mt-0 mb-1">Santa's Rave</h3>
+                    <p>Featuring DJ Oilers Monster Bash and DrCiRCUiT and the Stack Tracers at 1 AM Christmas Eve.</p>
+                    <button class="btn btn-primary" disabled>Purchase Tickets</button>
+                </div>
+                <div class="overlay">
+                    <p>SOLD OUT</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+   
+</body>
+
+</html>

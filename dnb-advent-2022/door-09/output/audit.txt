@@ -1,0 +1,26 @@
+Foremost version 1.5.7 by Jesse Kornblum, Kris Kendall, and Nick Mikus
+Audit File
+
+Foremost started at Fri Dec  9 07:40:26 2022
+Invocation: foremost southpoleselfie.png 
+Output directory: /home/toffe/Projects/dnb-julekalender-2022/door-09/output
+Configuration file: /etc/foremost.conf
+------------------------------------------------------------------
+File: southpoleselfie.png
+Start: Fri Dec  9 07:40:26 2022
+Length: 5 MB (5489423 bytes)
+ 
+Num	 Name (bs=512)	       Size	 File Offset	 Comment 
+
+0:	00000000.png 	       5 MB 	          0 	  (2048 x 2048)
+1:	00010605.png 	      57 KB 	    5430134 	  (1399 x 849)
+2:	00010425.pdf 	      89 KB 	    5337987 	 
+Finish: Fri Dec  9 07:40:26 2022
+
+3 FILES EXTRACTED
+	
+png:= 2
+pdf:= 1
+------------------------------------------------------------------
+
+Foremost finished at Fri Dec  9 07:40:26 2022

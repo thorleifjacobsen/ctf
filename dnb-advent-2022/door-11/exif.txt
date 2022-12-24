@@ -1,0 +1,35 @@
+ExifTool Version Number         : 12.49
+File Name                       : dj-oilers-theme.mp3
+Directory                       : .
+File Size                       : 2.1 MB
+File Modification Date/Time     : 2022:12:11 17:06:43+01:00
+File Access Date/Time           : 2022:12:11 17:06:43+01:00
+File Inode Change Date/Time     : 2022:12:11 17:06:43+01:00
+File Permissions                : -rw-r--r--
+File Type                       : MP3
+File Type Extension             : mp3
+MIME Type                       : audio/mpeg
+MPEG Audio Version              : 1
+Audio Layer                     : 3
+Audio Bitrate                   : 320 kbps
+Sample Rate                     : 48000
+Channel Mode                    : Joint Stereo
+MS Stereo                       : Off
+Intensity Stereo                : Off
+Copyright Flag                  : False
+Original Media                  : True
+Emphasis                        : None
+Encoder                         : LAME3.99r
+Lame VBR Quality                : 4
+Lame Quality                    : 2
+Lame Method                     : CBR
+Lame Low Pass Filter            : 20.5 kHz
+Lame Bitrate                    : 255 kbps
+Lame Stereo Mode                : Joint Stereo
+ID3 Size                        : 4164
+Artist URL                      : aHR0cDovL2Rqb2lsZXJsb2NrLm5vcndheWVhc3QuYXp1cmVjb250YWluZXIuaW86MjY3NC8=
+Popularimeter                   : Windows Media Player 9 Series Rating=255 Count=0
+Band                            : DJ Oiler
+Conductor                       : 3fe1406a8254afd471de2bdd53483501f947004cd3d174e6a607648638ae1a3e
+Initial Key                     : C Major
+Duration                        : 0:00:53 (approx)

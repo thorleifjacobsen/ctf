@@ -1,0 +1,21 @@
+ExifTool Version Number         : 12.51
+File Name                       : southpoleselfie.png
+Directory                       : .
+File Size                       : 5.5 MB
+File Modification Date/Time     : 2022:12:09 03:31:09+01:00
+File Access Date/Time           : 2022:12:09 07:40:04+01:00
+File Inode Change Date/Time     : 2022:12:09 07:40:01+01:00
+File Permissions                : -rw-r--r--
+File Type                       : PNG
+File Type Extension             : png
+MIME Type                       : image/png
+Image Width                     : 2048
+Image Height                    : 2048
+Bit Depth                       : 8
+Color Type                      : RGB
+Compression                     : Deflate/Inflate
+Filter                          : Adaptive
+Interlace                       : Noninterlaced
+Warning                         : [minor] Trailer data after PNG IEND chunk
+Image Size                      : 2048x2048
+Megapixels                      : 4.2
