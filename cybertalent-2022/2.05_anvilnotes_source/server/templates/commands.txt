@@ -1,0 +1,8 @@
+{% for c in commands -%}
++--------------------
+| Run after: {{ c.run_after | format_time }}
+| Delivered: {{ "Yes" if c.delivered else "No" }}
+
+{{ c.content | b64encode }}
+
+{% endfor %}

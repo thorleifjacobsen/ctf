@@ -1,0 +1,5 @@
+{{ "%-16s" | format("ID")}} | {{ "%-32s" | format("NAME")}} | LAST CHECKIN
+-----------------+----------------------------------+--------------------
+{% for c in clients -%}
+{{ "%-16s" | format(c.id)}} | {{ "%-32s" | format(c.name)}} | {{c.last_checkin|format_time}}
+{% endfor %}

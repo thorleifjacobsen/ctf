@@ -1,0 +1,7 @@
+{% for c in checkins -%}
++--------------------
+| {{ c.date | format_time }}
+
+{{ c.content }}
+
+{% endfor %}
