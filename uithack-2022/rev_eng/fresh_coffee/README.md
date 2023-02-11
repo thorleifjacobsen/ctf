@@ -4,7 +4,7 @@ I wrote a program to start the coffee machine. I was so tired that I forgot the 
 
 # Writeup
 
-Loaded the Keygen.class in Ghidra and found a "checkPassword" command 
+Loaded the Keygen.class in Ghidra and found a `checkPassword` command 
 
 ```java
 boolean checkPassword_java.lang.String_boolean(Keygen this,String param1)
