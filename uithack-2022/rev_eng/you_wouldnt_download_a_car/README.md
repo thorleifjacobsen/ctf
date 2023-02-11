@@ -64,16 +64,16 @@ void FUN_00101700(void) {
 
 `DAT_001041c0` seems to be the data position for the first line of text and the count. So `FUN_00101a30` probably is a println function. Then there is an `if` statement. It seems like the first print function shows the invalid code so I want to bypass this and get to the else part of the function. The else part seems to print the flag if we enter the valid code. So let see if I can make it skip that.
 
-!(Image1)[image1.png]
+![Image1](image1.png)
 
 By modifying this `JNZ` (Jump if not zero) to just `JMP` (jump) we would skip the whole if and go straight to the else statement. So right click -> patch instruction -> change `jnz` to `jmp`.
 
-!(Image2)[image2.png]
+![Image2](image2.png)
 
 
 Now I can save the file, go back to Ghidra and export this file as a PE. 
 
-!(Image3)[image3.png]
+![Image3](image3.png)
 
 Then run the program and we do not need a key anymore. Entering "a" will be enough:
 
