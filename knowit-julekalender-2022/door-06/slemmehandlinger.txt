@@ -1,0 +1,16 @@
+tagge:0.5
+banne i kirka:0.1
+mobbe:0.3
+forsøple:0.7
+ikke gjøre lekser:0.9
+snike på bussen:0.8
+gå på slang:0.7
+stjele:0.6
+kaste snøball:0.9
+bråke i timen:0.8
+komme for sent:0.9
+lure folk:0.9
+le av folk:0.7
+gå på rød mann:0.8
+lugge:0.4
+bite:0.3
