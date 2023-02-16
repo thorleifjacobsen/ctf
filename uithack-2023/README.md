@@ -8,7 +8,7 @@ I managed to get 17/31 challenges completed. Got a 14th place on my team (me alo
 
 # Progress
 
-> 23/32 completed
+> 24/32 completed
 
 ## PWN
 - Wizardry 50p ✅ 🏆
@@ -43,7 +43,7 @@ I managed to get 17/31 challenges completed. Got a 14th place on my team (me alo
 - Can you smell that? 350p ❌
 
 ## MISC
-- Guide 50p ❌
+- Guide 50p ✅
 - So You Think You Can Math 100p ✅ 🏆
 - Gangstas messed up paradise 150p ✅ 🏆
 - Microsoft Word 1.1! 200p ❌
