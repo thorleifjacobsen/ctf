@@ -8,7 +8,7 @@ I managed to get 17/31 challenges completed. Got a 14th place on my team (me alo
 
 # Progress
 
-> 22/32 completed
+> 23/32 completed
 
 ## PWN
 - Wizardry 50p ✅ 🏆
@@ -21,7 +21,7 @@ I managed to get 17/31 challenges completed. Got a 14th place on my team (me alo
 - Popup Roulett 100p ✅ 🏆
 - Bypass ??p ✅
 - Nokia 3310 200p ✅ 🏆
-- Flags 24/7 400p ❌
+- Flags 24/7 400p ✅
 
 ## REV_ENG
 - Forrest 50p ✅ 🏆
