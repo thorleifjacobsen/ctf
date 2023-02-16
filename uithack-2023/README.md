@@ -22,7 +22,7 @@ I managed to get 17/31 challenges completed. Got a 14th place on my team (me alo
 ## REV_ENG
 - Forrest 50p ✅ 🏆
 - Fresh coffee 100p ✅ 🏆
-- Pokemon Battle V2 200p ❌
+- Pokemon Battle V2 200p ✅
 - You wouldn't download a car 200p ✅ 🏆
 - Pokemon Battle 400p ✅
 
