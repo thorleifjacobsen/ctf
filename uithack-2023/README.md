@@ -6,6 +6,10 @@ I managed to get 17/31 challenges completed. Got a 14th place on my team (me alo
     🏆 = Completed during CTF (within the 6 hours)
     ❌ = Not completed
 
+# Progress
+
+> 22/32 completed
+
 ## PWN
 - Wizardry 50p ✅ 🏆
 - Ollivanders 100p ✅ 🏆
@@ -22,7 +26,7 @@ I managed to get 17/31 challenges completed. Got a 14th place on my team (me alo
 ## REV_ENG
 - Forrest 50p ✅ 🏆
 - Fresh coffee 100p ✅ 🏆
-- Pokemon Battle V2 200p ✅
+- Pokemon Battle V2 (Aka ???) 200p ✅
 - You wouldn't download a car 200p ✅ 🏆
 - Pokemon Battle 400p ✅
 
@@ -53,7 +57,7 @@ I managed to get 17/31 challenges completed. Got a 14th place on my team (me alo
 - Noob5 250p ✅ 🏆
 
 ## ??? 
-- ??? 0p ❌
+- ??? 0p (This was actually Pokemon Battle V2). Release once you did Pokemon Battle.
 
 # Scoreboard
 
