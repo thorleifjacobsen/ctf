@@ -1,5 +1,9 @@
 # Flags 24/7
 
+Bill gates approves this design
+
+motherload.td.org.uit.no:5050
+
 # Writeup
 
 Looking at the website I found nothing at a first glance. There is a post which runs a request when pressing the get flag. I'll look more into that if it's not a read herring.
