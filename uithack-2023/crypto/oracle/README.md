@@ -64,4 +64,27 @@ We see here it sends a request just to verify that this works. Then it sends a s
 
 I`ve logged everything into [middleman.log](middleman.log) and the whole attack only uses two blocks. So it starts with the last block, verifies it then it goes to the next block.
 
-* Break time * I'll continue later! But this must be solved.. how does this work! :D 
+After watching this video [CS2107 Padding Oracle Attack](https://www.youtube.com/watch?v=4EgD4PEatA8) everything became super clear. I could easily make a python script which decoded this text. It is really slow compared to the method I initially described. But my initial method I think did multiple connections to speed things up. This one is pretty async.
+
+I cannot explain this as good as him on the video by only text. But look at the video, read the python script and try to understand if you're curious. This is mainly my own "logs" to look back to so I'll understand it, and thats #1 
+
+But here is the script running:
+
+```python
+$ python3 get_flag.py
+Starting with block: 6 of 6
+be526a324acfa7e82ca8a9383bb62676191475a6f737361fe6d13808f229c8f4 - 200
+Starting with block: 5 of 6
+be5fd4f01154ae7bac7130f3e45467d4e02c4a1f56d3bbf430b4b52427aa3a6a - 200
+Starting with block: 4 of 6
+4998cc22328c06be0627c4a5597b9542e0089dd34c77f40df23653d3ba3e31b1 - 200
+Starting with block: 3 of 6
+c561a3264a00f9b06e08a62b6bab741b14bb965440c47ac87705e0cf0411d334 - 200
+Starting with block: 2 of 6
+1fb76e89f70ab1942801de8e2f9d44449b25d04e385791c61d72f84f36895562 - 200
+Skipping first block as we do not have data for it
+=======================
+Decoded data:
+VWlUSGFjazIzezFfNTcxbGxfcjNtM21iM3JfbXlfa24zMzVfNGY3M3JfNWs0NzFuNn0=
+=======================
+```
