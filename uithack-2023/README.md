@@ -8,7 +8,7 @@ I managed to get 17/31 challenges completed. Got a 14th place on my team (me alo
 
 # Progress
 
-> 28/29 completed (1 left)
+> 29/29 completed (0 left)
 
 ## PWN
 - Wizardry 50p ✅ 🏆
@@ -34,7 +34,7 @@ I managed to get 17/31 challenges completed. Got a 14th place on my team (me alo
 - Hotel Caesar 50p ✅ 🏆
 - Lion King 50p ✅ 🏆
 - Code Page 100p ✅
-- Kasparovs nightmare 250p ❌
+- Kasparovs nightmare 250p ✅
 - Oracle 400p ✅
 
 ## MISC
