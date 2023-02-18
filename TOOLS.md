@@ -6,6 +6,7 @@ Here is a list of tools I've used during this CTF
 
 - hexdump (gets a full hexdump from the file)
 - strings (gets strings from binary)
+- pwn checksec <file> (shows sec of file)
 
 # External websites
 
@@ -33,6 +34,11 @@ At 452540 is the start address. But little endian so reversing that the start of
 00000020: 4000 0000 0000 0000 a09b 5a00 0000 0000  @.........Z.....
 00000030: 0000 0000 4000 3800 0b00 4000 1c00 1b00  ....@.8...@.....
 ```
+
+## Dont know but it is useful:
+
+cat /proc/`pidof tamagotchi`/maps
+
 
 
 https://github.com/x41x41x41/hackingpotato/blob/master/techniques/stenography.md
