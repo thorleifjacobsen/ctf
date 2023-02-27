@@ -42,3 +42,6 @@ cat /proc/`pidof tamagotchi`/maps
 
 
 https://github.com/x41x41x41/hackingpotato/blob/master/techniques/stenography.md
+
+
+FlaG{t3l3N0rWasH3r3}
