@@ -1,0 +1,89 @@
+# eiffel
+
+"Ne jugez pas un livre à sa couverture" hørte Påskeharen da han åpnet bildet. Hvem sa det? Hva betyr nå det? Det var ingen andre rundt ham. Kanskje han bare var overtrøtt, tenkte Påskeharen. Dessverre var ikke franskkunnskapene til Påskeharene lenger på samme nivå som på ungdomsskolen.
+
+# Writeup
+
+`exiftool` shows the flag in plaintext.
+
+```
+$ exiftool eiddel.jpeg 
+ExifTool Version Number         : 12.49
+File Name                       : eiddel.jpeg
+Directory                       : .
+File Size                       : 406 kB
+File Modification Date/Time     : 2023:03:20 11:24:04+01:00
+File Access Date/Time           : 2023:03:20 12:55:29+01:00
+File Inode Change Date/Time     : 2023:03:20 12:55:40+01:00
+File Permissions                : -rw-r--r--
+File Type                       : JPEG
+File Type Extension             : jpg
+MIME Type                       : image/jpeg
+Exif Byte Order                 : Big-endian (Motorola, MM)
+Orientation                     : Horizontal (normal)
+X Resolution                    : 72
+Y Resolution                    : 72
+Resolution Unit                 : inches
+Modify Date                     : 2023:03:19 23:10:49
+Y Cb Cr Positioning             : Centered
+Exif Version                    : 0221
+Date/Time Original              : 2023:03:19 23:10:49
+Create Date                     : 2023:03:19 23:10:49
+Offset Time                     : +01:00
+Offset Time Original            : +01:00
+Offset Time Digitized           : +01:00
+Components Configuration        : Y, Cb, Cr, -
+Sub Sec Time                    : 342
+Sub Sec Time Original           : 342
+Sub Sec Time Digitized          : 342
+Flashpix Version                : 0100
+Color Space                     : sRGB
+Exif Image Width                : 1024
+Exif Image Height               : 1024
+Scene Capture Type              : Standard
+XMP Toolkit                     : Image::ExifTool 12.50
+Description                     : helsectf{h1dd3n_m3t4dat4!}
+Profile CMM Type                : Apple Computer Inc.
+Profile Version                 : 4.0.0
+Profile Class                   : Display Device Profile
+Color Space Data                : RGB
+Profile Connection Space        : XYZ
+Profile Date Time               : 2022:01:01 00:00:00
+Profile File Signature          : acsp
+Primary Platform                : Apple Computer Inc.
+CMM Flags                       : Not Embedded, Independent
+Device Manufacturer             : Apple Computer Inc.
+Device Model                    : 
+Device Attributes               : Reflective, Glossy, Positive, Color
+Rendering Intent                : Perceptual
+Connection Space Illuminant     : 0.9642 1 0.82491
+Profile Creator                 : Apple Computer Inc.
+Profile ID                      : ecfda38e388547c36db4bd4f7ada182f
+Profile Description             : Display P3
+Profile Copyright               : Copyright Apple Inc., 2022
+Media White Point               : 0.96419 1 0.82489
+Red Matrix Column               : 0.51512 0.2412 -0.00105
+Green Matrix Column             : 0.29198 0.69225 0.04189
+Blue Matrix Column              : 0.1571 0.06657 0.78407
+Red Tone Reproduction Curve     : (Binary data 32 bytes, use -b option to extract)
+Chromatic Adaptation            : 1.04788 0.02292 -0.0502 0.02959 0.99048 -0.01706 -0.00923 0.01508 0.75168
+Blue Tone Reproduction Curve    : (Binary data 32 bytes, use -b option to extract)
+Green Tone Reproduction Curve   : (Binary data 32 bytes, use -b option to extract)
+Image Width                     : 1024
+Image Height                    : 1024
+Encoding Process                : Baseline DCT, Huffman coding
+Bits Per Sample                 : 8
+Color Components                : 3
+Y Cb Cr Sub Sampling            : YCbCr4:2:0 (2 2)
+Image Size                      : 1024x1024
+Megapixels                      : 1.0
+Create Date                     : 2023:03:19 23:10:49.342+01:00
+Date/Time Original              : 2023:03:19 23:10:49.342+01:00
+Modify Date                     : 2023:03:19 23:10:49.342+01:00
+```                                                                                                                                                           
+
+# Flag
+
+```
+helsectf{h1dd3n_m3t4dat4!}
+```

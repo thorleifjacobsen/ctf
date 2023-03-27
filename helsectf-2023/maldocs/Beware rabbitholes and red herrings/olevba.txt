@@ -1,0 +1,122 @@
+XLMMacroDeobfuscator: pywin32 is not installed (only is required if you want to use MS Excel)
+olevba 0.60.1 on Python 3.10.8 - http://decalage.info/python/oletools
+===============================================================================
+FILE: Beware_rabbitholes_and_herrings.doc
+Type: OLE
+-------------------------------------------------------------------------------
+VBA MACRO ThisDocument.cls 
+in file: Beware_rabbitholes_and_herrings.doc - OLE stream: 'Macros/VBA/ThisDocument'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+(empty macro)
+-------------------------------------------------------------------------------
+VBA MACRO Module1.bas 
+in file: Beware_rabbitholes_and_herrings.doc - OLE stream: 'Macros/VBA/Module1'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Function suggerimento() As String
+
+suggerimento = "c3ViLXZzLWZ1bmN0aW9uLXZiYQo="
+
+
+End Function
+
+
+
+Sub falsapista(flagg)
+Dim command As String
+
+six = "$b64      = "
+
+two = "$filename = $starter + 'falsapista.zip';"
+three = "$starter = pwd;"
+
+
+one = "$bytes = [Convert]::FromBase64String($b64);"
+
+nine = "[IO.File]::WriteAllBytes($filename, $bytes)"
+
+command = six
+
+
+For Each falsapista In ActiveDocument.StoryRanges
+command = command + falsapista
+
+Next falsapista
+command = command + ";"
+command = command + three + four + two + ten + one + nine
+PS_Execute (command)
+
+falsapista = "c3ViLXZzLWZ1bmN0aW9uLXZiYQpIdmEgZXIgZm9yc2tqZWxsZW4="
+
+End Sub
+
+Public Sub PS_Execute(ByVal sPSCmd As String)
+    'Setup the powershell command properly
+    sPSCmd = "powershell -command " & sPSCmd
+    'Execute and capture the returned value
+    CreateObject("WScript.Shell").Exec (sPSCmd)
+End Sub
+
+Sub lastcall()
+For Each word_string In ActiveDocument.StoryRanges
+
+
+
+l = "l"
+b = 5
+complicated_control_flow = Mid(word_string, 240, 1) & Mid(word_string, 170, 1) & Mid(word_string, 43, 1) & Mid(word_string, 3, 1) & Mid(word_string, 170, 1) & Mid(word_string, 49, 1) & Mid(word_string, 291, 1) & Mid(word_string, 59, 1) & Chr(Int(Mid(word_string, 18, 1) & 2 & Mid(word_string, 102, 1))) & Mid(word_string, 59, 1) & Mid(word_string, 60, 1) & Mid(word_string, 43, 1) & Mid(word_string, 43, 1) & Mid(word_string, 60, 1) & Mid(word_string, 34, 1) & Chr(Int(Mid(word_string, 16, 1) & Mid(word_string, 47, 1))) & Mid(word_string, 291, 1) & Mid(word_string, 240, 1) & Mid(word_string, 170, 1) & Chr(95) & Mid(word_string, 59, 1) & l & Mid(word_string, 60, 1) & w & Chr(20 + 44 + 55) & Chr(Int(Mid(word_string, 18, 1) & 2 & b))
+
+
+
+
+
+Next word_string
+End Sub
+Sub Kaninhullet(who)
+
+Dim flagg As String
+firstcall
+flagg = suggerimento
+flagg = falsapista(flagg)
+Debug.Print flagg
+lastcall
+
+
+
+End Sub
+Sub autoOpen()
+
+Kaninhullet Alice
+
+End Sub
+
+
+
+
+
+
+
+
++----------+--------------------+---------------------------------------------+
+|Type      |Keyword             |Description                                  |
++----------+--------------------+---------------------------------------------+
+|AutoExec  |autoOpen            |Runs when the Word document is opened        |
+|Suspicious|Shell               |May run an executable file or a system       |
+|          |                    |command                                      |
+|Suspicious|WScript.Shell       |May run an executable file or a system       |
+|          |                    |command                                      |
+|Suspicious|powershell          |May run PowerShell commands                  |
+|Suspicious|command             |May run PowerShell commands                  |
+|Suspicious|CreateObject        |May create an OLE object                     |
+|Suspicious|Chr                 |May attempt to obfuscate specific strings    |
+|          |                    |(use option --deobf to deobfuscate)          |
+|Suspicious|Exec                |May run an executable file or a system       |
+|          |                    |command using Excel 4 Macros (XLM/XLF)       |
+|Suspicious|Base64 Strings      |Base64-encoded strings were detected, may be |
+|          |                    |used to obfuscate strings (option --decode to|
+|          |                    |see all)                                     |
+|Base64    |sub-vs-function-vba |c3ViLXZzLWZ1bmN0aW9uLXZiYQo=                 |
+|String    |                    |                                             |
+|Base64    |sub-vs-function-vba |c3ViLXZzLWZ1bmN0aW9uLXZiYQpIdmEgZXIgZm9yc2tqZ|
+|String    |Hva er forskjellen  |WxsZW4=                                      |
++----------+--------------------+---------------------------------------------+
+
