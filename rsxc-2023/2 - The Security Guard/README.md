@@ -14,11 +14,7 @@ Here I tried the same as last time, `;ls`. Then I got this message: `Illegal Inp
 
 Quickly thought they had blocked `;` so I tried the else operator in bash. `|| ls` and there we go. Had to use `||` which runs the following command only if the first fails, which it does due to missing `ping`.
 
-```
-flag.txt
-index.php
-style.css
-```
+![ls](ls.png)
 
 Quickly cat the flag and index.php.
 

@@ -12,11 +12,7 @@ Due to my findings in no 3-6 of this challenge the challenge has been updated. S
 
 After a lot of input, any type of injections I could find I suddenly got output with the `;ls`. There I found out that this was a bash script injection.
 
-```
-flag.txt
-index.php
-style.css
-```
+![ls](ls.png)
 
 Flag was quickly captured by `;cat flag.txt` then I analyzed the `index.php` file:
 
