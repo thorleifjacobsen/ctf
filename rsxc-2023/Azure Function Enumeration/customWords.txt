@@ -1,0 +1,17 @@
+flag
+access
+give
+show
+grant
+function
+azure
+enumeration
+trigger
+respond
+parameter
+hidden
+secret
+functionality
+explore
+rivsec
+proud

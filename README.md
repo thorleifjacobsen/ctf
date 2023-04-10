@@ -5,3 +5,4 @@
 - 2023/01 - Etterretningstjenesten's Cybertalent
 - 2023/02 - UiTHack
 - 2023/03 - HelseCTF
+- 2023/04 - River Security (RSXC)
