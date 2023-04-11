@@ -22,22 +22,22 @@ key_bytes = key_bytes[4:] #numb of keys, always 0
 key_bytes = key_bytes[4:] # pubkey length
 
 # Get key type
-lenght = int.from_bytes(key_bytes[:4], byteorder='big')
+length = int.from_bytes(key_bytes[:4], byteorder='big')
 key_bytes = key_bytes[4:]
-print("keytype: ", key_bytes[:lenght].decode()) # public key length
-key_bytes = key_bytes[lenght:]
+print("keytype: ", key_bytes[:length].decode()) # public key length
+key_bytes = key_bytes[length:]
 
 # Get pub0
-lenght = int.from_bytes(key_bytes[:4], byteorder='big')
+length = int.from_bytes(key_bytes[:4], byteorder='big')
 key_bytes = key_bytes[4:]
-print("pub0: ", key_bytes[:lenght].hex()) 
-key_bytes = key_bytes[lenght:]
+print("pub0: ", key_bytes[:length].hex()) 
+key_bytes = key_bytes[length:]
 
 # Get pub1
-lenght = int.from_bytes(key_bytes[:4], byteorder='big')
+length = int.from_bytes(key_bytes[:4], byteorder='big')
 key_bytes = key_bytes[4:]
-print("pub1: ", key_bytes[:lenght].hex()) 
-key_bytes = key_bytes[lenght:]
+print("pub1: ", key_bytes[:length].hex()) 
+key_bytes = key_bytes[length:]
 
 key_bytes = key_bytes[4:] # Skip length for rnd,prv,comment,pad
 
