@@ -14,6 +14,7 @@ Here is a list of tools I've used during this CTF
 - [CrackStation](https://crackstation.net/) - Great tool to do reverse hashes. Also one of the largest password text files for bruteforce exists here. 
 - [Image Diff Checker](https://www.diffchecker.com/image-compare/) - Quickly xor images 
 - [DotNet Fiddle](https://dotnetfiddle.net/)
+- [RSA Information](https://bitsdeep.com/posts/attacking-rsa-for-fun-and-ctf-points-part-1/)
 
 # Linux Software
 
@@ -22,27 +23,12 @@ Here is a list of tools I've used during this CTF
 
 # Code snippets
 
-## Find start address of elf
+- [Finding ELF Entrypoint](_notes/find_elf_entrypoint.md)
 
-At 452540 is the start address. But little endian so reversing that the start of this example program is actually `s402545`
+# Random commands I have used
 
-```bash
-┌──(toffe㉿kali)-[~/Projects/uithack/pokemon]
-└─$ xxd -l 64 pokemon_v2 
-00000000: 7f45 4c46 0201 0100 0000 0000 0000 0000  .ELF............
-00000010: 0200 3e00 0100 0000 4525 4000 0000 0000  ..>.....E%@.....
-00000020: 4000 0000 0000 0000 a09b 5a00 0000 0000  @.........Z.....
-00000030: 0000 0000 4000 3800 0b00 4000 1c00 1b00  ....@.8...@.....
+These might be useful in the future or be a future `_notes`
+
 ```
-
-## Dont know but it is useful:
-
 cat /proc/`pidof tamagotchi`/maps
-
-
-
-https://github.com/x41x41x41/hackingpotato/blob/master/techniques/stenography.md
-
-# Flag
-
-FlaG{t3l3N0rWasH3r3}
+```
