@@ -10,3 +10,28 @@ Hensikten er å kunne kategorisere kyllingene i to typer kyllinger, den ene egne
 
 # Writeup
 
+Saw it talk about visualizing so I started plotting. The type indicates that there is two sets of data here. One for the EGG and one for the flag. 
+
+Taking this into python's pyplot made it easy to visualize. I did not really know what was X and what was Y but using the first column as X, second for Y and third for which dataset to extract I get this.
+
+![graphtoobig](./graph_too_big.png)
+
+It did not make any sense, after a while I asked for a tip and got a tip to make it smaller. I changed graph size and this came out:
+
+![graphsmall](./graph_smaller.png)
+
+And there it is upside down. Lets reverse the X axis.
+
+![graphrev](./graph_reversed.png)
+
+Still not perfect but readable. Not sure what the glitch is on the P and the bracket. But I get the flag.
+
+Trying the '1' dataset seems to only give me the inverted flag. So guessing that is all.
+
+![graph1](./graphs_1.png)
+
+# Flag
+
+```
+PST{EGGESKALL}
+```
