@@ -15,6 +15,7 @@ Here is a list of tools I've used during this CTF
 - [Image Diff Checker](https://www.diffchecker.com/image-compare/) - Quickly xor images 
 - [DotNet Fiddle](https://dotnetfiddle.net/)
 - [RSA Information](https://bitsdeep.com/posts/attacking-rsa-for-fun-and-ctf-points-part-1/)
+- [Image stegsolver all in one tool](https://www.aperisolve.com/)
 
 # Linux Software
 
