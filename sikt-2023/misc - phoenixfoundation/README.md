@@ -63,3 +63,11 @@ Now I'm flabbergasted. I've tried:
 ```
 
 Gave up, dont like guessy tasks :)
+
+
+GPS Latitude Ref                : North
+GPS Longitude Ref               : West
+GPS Position                    : 38 deg 53' 52.65" N, 77 deg 2' 11.62" W
+
+
+38.8812917 -77.03656111111111
