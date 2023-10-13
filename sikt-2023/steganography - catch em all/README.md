@@ -7,13 +7,13 @@ I can't remember this version of the theme song...
 
 # Writeup
 
-Opened in Audicity, as this was steno my first test was to look at the waveform. Bingo
+Opened in Audicity, as this was steno my first test was to look at the spectrogram. Bingo
 
-![waveform.png](waveform.png)
+![spectrogram.png](spectrogram.png)
 
 And here is the whole file
 
-![waveform2.png](waveform2.png)
+![spectrogram2.png](spectrogram2.png)
 
 Some red herrings in the file `jibberish`. But ignoring them we get a flag:
 
