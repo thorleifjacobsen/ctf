@@ -23,7 +23,7 @@ Opening https://vimeo.com/macaroni93333 we see the intro of MacGyver. Around 0:4
 
 I missed a few but was on the right track. Did browse YouTube for a few hours, did not find anything. Annoyed and tired I wake up to a notification that there is an update. 
 
-Seems like the YouTube profile was banned. He created a new prefixed with "@YT" so heading to [@YTmacaroni93333}(https://www.youtube.com/@YTmacaroni93333) I found a website with nothing on it. He has a playlist named `My Favorites` with 5 videos. Mostly manchester united, some twitch vs youtube.. `Hans Zimmer - Time` music .
+Seems like the YouTube profile was banned. He created a new prefixed with "@YT" so heading to [@YTmacaroni93333](https://www.youtube.com/@YTmacaroni93333) I found a website with nothing on it. He has a playlist named `My Favorites` with 5 videos. Mostly manchester united, some twitch vs youtube.. `Hans Zimmer - Time` music .
 
 ![youtube.png](youtube.png)
 
@@ -58,7 +58,7 @@ Well now it went kinda fast from here, looking quickly around found his schedule
 
 ![twitch.png](twitch.png)
 
-It refers to vacation `napolion` which is french. And a video showing translate the about page on your profile for YouTube. 
+It refers to vacation `napolion` which is french. And a video showing how you can translate the about page on your profile for YouTube. 
 
 Clicking back to YouTube, changing my language to french and there the flag was.
 
