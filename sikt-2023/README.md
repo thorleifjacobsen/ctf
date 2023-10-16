@@ -8,8 +8,10 @@ Something that annoyed me regarding this CTF was the lack of rules and informati
 
 Secondly one of the tasks required bruteforcing, but there was no rules if it was legal to brute or not. So firstly I did not do it until someone else did it. I think it is a bit sad that the rules are not clear. 
 
-**Favorite challenge**: ComputerStick was a fun challenge. I've never done anything like that before.
-**Least favorite challenge**: Phoenix Foundation, this had a lot of guesswork in it. not a fan of that. Could have a more red thread thought it all.
+**Favorite challenge**: ComputerStick was a fun challenge. I've never done anything like that before. Even though it was easyy it was fun to learn something new.
+
+**Least favorite challenge**: Phoenix Foundation, this felt like a whole lot of guessing in the start. Not a big fan of that, I like to have some sort of direction. My thought could be to put it in OSINT category. It could also have been a bit more clear that the discord server was supposed to act like the the office building (or atleast I think). I see that now in hindsight, but it was not clear at all when I was doing it. But fun challenge when I see the overview of it. 
+
 **Final words**: I had a lot of fun on many of the challenges. would be fun to have a few more `pwn` challenges. Thanks for creating this :) 
 
 # Bragshots
