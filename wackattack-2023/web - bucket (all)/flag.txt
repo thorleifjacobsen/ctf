@@ -1,0 +1,3 @@
+wack{i_assumed_u_was_good}
+
+Afterthought: Det er ikke lurt å ha en rolle i aws som alle kan assume. Det er veldig lett å gjøre denne feilkonfigureringen hvis man er lat.
