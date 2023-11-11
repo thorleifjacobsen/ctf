@@ -9,3 +9,4 @@
 - 2023/04 - PHST (PST)
 - 2023/10 - siktCTF
 - 2023/10 - WackAttack
+- 2023/11 - Equinor CTF
