@@ -22,6 +22,7 @@ Here is a list of tools I've used during this CTF
 
 - Ghidra - Reverse engineer a binary
 - John the Ripper - Bruteforce passwords
+- Hashcat - Bruteforce passwords
 
 # Code snippets
 
