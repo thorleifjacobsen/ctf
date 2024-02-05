@@ -1,0 +1,11 @@
+    /\___/\
+   /       \
+  l  u   u  l
+--l----*----l--
+   \   w   /     - Meow!
+     ======
+   /       \ __    
+   l        l\ \   
+   l        l/ /   flag part1 is:
+   l  l l   l /    helsectf{r3meMber_
+   \ ml lm /_/

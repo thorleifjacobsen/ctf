@@ -1,0 +1,9 @@
+{
+	"Create a download link": {
+		"scope": "markdown",
+		"prefix": "download",
+		"body": [
+			"[⬇ $1](./$1)$0",
+		],
+	}
+}

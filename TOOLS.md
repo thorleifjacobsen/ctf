@@ -35,3 +35,7 @@ These might be useful in the future or be a future `_notes`
 ```
 cat /proc/`pidof tamagotchi`/maps
 ```
+
+# Stego toolkit
+
+`docker run -it --rm -v $(pwd)/data:/data dominicbreuker/stego-toolkit /bin/bash`

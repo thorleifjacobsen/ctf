@@ -1,0 +1,9 @@
+with open("flag.bz2", "rb") as f:
+    data = f.read()
+
+header = data[:4]
+data = data[4:]
+data = data.replace(b"\x31\x41\x59\x26\x53\x59\x0e\x09\xe2\xdf\x01\x5f\x8e\x40\x00\xc0\x00\x00\x08\x20\x00\x30\x80\x4d\x46\x42\xa0\x25\xa9\x0a\x80\x97", b"")
+
+with open("flag2.bz2", "wb") as f:
+    f.write(header + data)

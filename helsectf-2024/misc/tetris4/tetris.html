@@ -1,0 +1,569 @@
+<style>
+    body {
+        background-color: #333;
+    }
+
+    canvas {
+        width: 1280px;
+        height: 800px;
+        image-rendering: pixelated;
+        image-rendering: crisp-edges;
+    }
+</style>
+<center>
+    <canvas id="canvas" width="320" height="200"></canvas>
+</center>
+<script>
+    var ctx = canvas.getContext("2d");
+    ctx.imageSmoothingEnabled = false;
+
+    var width = 320;
+    var height = 200;
+
+    class BitMap {
+        constructor($, J, _, N=-1, e=[]) {
+            this.width = $,
+            this.height = J,
+            this.pixels = _,
+            this.palette = e,
+            this.transColor = N
+        }
+        static decode($) {
+            for (var J = new BitStream($), _ = $=>J.read($), N = 5; 1 == _(1); )
+                N++;
+            var e, t = _(N), H = _(N), A = _(3), r = _(A), X = new BitMap(t,H,Array(t * H).fill(r));
+            if (1 == _(2)) {
+                var o = _(3) + 1
+                  , L = _(A) + 1;
+                _(1) && (X.transColor = _(A));
+                for (let a = 0; a < L; a++)
+                    X.palette.push([_(o), _(o), _(o)])
+            }
+            for (; 7 != n; ) {
+                var n = _(3);
+                if (0 == n) {
+                    let c = _(N);
+                    if (c == t)
+                        return X;
+                    let d = _(N)
+                      , f = _(N)
+                      , R = _(N);
+                    for (let Z = 0; Z < R; Z++)
+                        for (let g = 0; g < f; g++) {
+                            var P = _(A);
+                            X.pixels[(d + Z) * t + c + g] = P
+                        }
+                }
+                if (4 == n) {
+                    let s = _(N)
+                      , h = _(N)
+                      , E = _(N)
+                      , I = _(A)
+                      , V = _(4)
+                      , B = _(4)
+                      , u = 0
+                      , D = _(V)
+                      , M = _(B);
+                    for (; D + M > 0; ) {
+                        u += D;
+                        for (let p = 0; p < M; p++) {
+                            let T = Math.floor((u + p) / E)
+                              , C = (u + p) % E;
+                            X.pixels[(h + T) * t + s + C] = I
+                        }
+                        u += M,
+                        D = _(V),
+                        M = _(B)
+                    }
+                }
+            }
+            return X
+        }
+    }
+    class BitStream {
+        constructor($) {
+            this.d = $ + 0,
+            this.i = 0
+        }
+        read($) {
+            let J = $=>this.d.charCodeAt($) - 40
+              , _ = this.i += $
+              , N = _ - $
+              , e = J(~~(N / 6)) % 2 ** (6 - N % 6);
+            for (let t = ~~(N / 6) + 1; t <= ~~(_ / 6); t++)
+                e = 64 * e + J(t);
+            return ~~(e / 2 ** (6 - _ % 6))
+        }
+    }
+    function generateHeightMap($, J, _) {
+        y = $=>BitMap.decode($);
+        for (let N = 0; N < _; N++) {
+            var e = [];
+            for (let t = 0; t < 2 * $.length; t += 2) {
+                e.push([]),
+                e.push([]);
+                for (let H = 0; H < 2 * $.length; H++) {
+                    var A = $[t / 2][H / 2];
+                    e[t].push(A),
+                    H++;
+                    var r = $[t / 2][Math.floor(H / 2)]
+                      , X = $[t / 2][(Math.floor(H / 2) + 1) % $.length];
+                    A = (r + X) / 2 + (randint(1e3) - 500) / 500 * J,
+                    e[t].push(A)
+                }
+            }
+            for (let o = 1; o < 2 * $.length; o += 2)
+                for (let L = 0; L < 2 * $.length; L++) {
+                    var r = e[o - 1][L]
+                      , X = e[(o + 1) % e.length][L]
+                      , A = (r + X) / 2 + (randint(1e3) - 500) / 500 * J;
+                    e[o].push(A)
+                }
+            $ = e,
+            J *= .36
+        }
+        for (let a = 0; a < $.length; a++)
+            for (let n = 0; n < $.length; n++)
+                $[a][n] < .3 && ($[a][n] = .3);
+        return $
+    }
+    state = Array(100).fill(0),
+    chkrl = "E$Q)N$'#M$($J%#$'$G&,&D$0'B&1$D$1#D$1$D%0$D%0$E$0#F#0$E#0$E$/#F$.$/#9#-$0$$$##-$%$*%&$++#$#$#'&%'$($+'#-#%'&#%(')$/#%#)()$#$)$3#*#%$($$%(#2$)$&#($$&$#$$1#*$&#($&'%#0$*$&#)#(##(.$+$&#)$+$#$,$,$&#*$)$%%(%-#'#+$'$(%$%.%%%+%$$+'/%%##$,&@#(#&",
+    brd1 = ["F\\XgXXV((/)8dP2[]ZeW)+:eSZ_:Efc()W`[T+I20HH0TX..e1A10))((*:;020():CD220(*DCC120)C;CB:90);DD;21):CCKA99):LLCB902<LKC2=)^>2<Q0N^[:::8(;.^J^d<:::(*M0LNf?,:Z((<PK/7J^^:8(A,:<KJN^ZL(Y\\51:91-2[c>\\MPLPQ1U,OAef\\LLH(((QW?C__c,L(1PdYN_V^^]Q(M^^^^Q0)MV]UQ0((5UU10(((1110((((((((/(UJZGH(((7ggg`()U@eZ>B:>>:F:[8X`,X`/(\\*I@/(J.9*,8Z08:08:,8J*8:08:08:.9*,8Z49**9:*8:08:08:/HJ.9J08:28:*9**9**8Z68Z49**9:*8:08:08:*8:08J*8:49**9:*8:08:08J/)*,9`,9:*8:08P*()X(", "F\\XgXXV((P2[\\/I@gZ_:EZeW)fc()+:eSW`[T.TD4(-1Q11():=-1110Z9;-201G8896^LJ<LJ:*1^^LM9LL90+/8Z;UJJA150^\\P<L<:A,A54A^\\LL(((,Q+10FgBLH(JL+([::>^]U0N:A>^]Q(LN2]UU02119UU1((R31110()9((((((D("],
+    cheat = BitMap.decode("b<<P+cGgggTJJWGWgf((((5Q^H;LA>g_gb^UKML(23gL^G_bTEd3TK*,(X4+,8,9,9+\\+)X,(J(((((*0*0H(((((J088I3-X(((J0J0J0J0J0J0J0J0J0J0J0J0J0J0J0J0J0J,:0J0((),((((((J0J0J0J0J0J0J0J0J0J0J0J0J0J0J0J0J0J,90J0((),((((((J0J0J0J0J0J0J0J0J0J0J0J0Z0J0I,J0J0J090J0((),8(((((J0J0J0J0J0J0J0J0J0J0J0J4Z0J0I,:0J0J090J0(((,8(((((J0J0J0J0J0J0J0J0J0J0J0J4Z0J0J,:0J0J09,J0(((,8(((((J0J0J0J0J0J0J0J0J0J0J0K4Z4J0J,90J0J0I,J0((((9(((((J0J0J0J0J0J0J0J0J0J0J0;4Z4J0J,90J0J0I,:0((((((((((J0J0J0J0J0J0J0J0J0L89,9,:4J0J090J0J0J,:0((((((((((J0J0J0J0J0J0J0J0J0I,9,9,94J0J09,J0J0J,:0((((((((((J0J0J0J0J0J0J0J0J,9,;4[,90J0J0I,J0J0J,:0((((),8(((J0J0J0J0J0J0J1:0K,94[4[49,J1K0I,J0J0J0J0((((),8(((J0J0J0J0J0J0J,:0[494[4[49,J0K0I,:0J0J0J0(((((,8(((J0J0J0J0J0J,9,:4[49,[4[49,OHJ0J,:0J0J0J,((((((((((J0J0J0J0J09,90[4[49,[4[49,OHJ0J<J0J0J0I,((((((((((J0J0J0J09,9,J4[4[4Y,;4[490[4Z0J0J0J0J0I,8(((((((((J0J0J0J,9,J0[4[4[4Y,;4Y,9904Z0J0J0J0J0J0((((((((((J0J0I,J,90J4[4[4[4[,9,9,9,;4Z0M<I,J0J0J0((((((((((J0I,9,J09,K4[4[4[4[,9,95),9HJ0N@I,J0J0J0((((((((((J,9,:0J09,K4\\89,[4[,95+4[49,;0J0I,J0J0J0(((((((((,9,90J0J0Y,[5),9,[4[494[4[4Y,94Z0J0J0J0J0((((((((9,9,:0J0J0Y,9,9,;8[4\\89,[4[4[,9,[0J0J0J0J0((((((),9,I,:0J0J0Y,9,<9+4[4[49,[4\\9,9)4[0Z0J0J0J0((((((),((J,90J0J0K,94\\5+4[4[4Y,<8\\8[4[4[0J0J0J0J0(((((((DKb:*H(H((((((9*0L9,9,AJ0NB.INANAN@J1NJ.ANANA,9,9,9,9,0J0(((((),8J9,9NAN0JANIPANANAN0NJ.ANANANANa,9,9,8J0J(((((,9*0L9,ANAJ0NB.ANB.AN@JB.ANANCNAN9,9,9,9*0J0H((((9,0J9,9.AN0JINANHJ1NANANANANCVAN94a,9,9,0H(J0(((),9*0U),ARAJ4.AN0J0NANANANAO*VaNA,ZL9,9,81J9D)H(((((9,(((((,8(),8(((J0I,>8PJ/HY,;,9,94[4[4[4[60I_F+5*0J0J0J0(((,9,9(((((),((),8((0J0I,J0_E_49,9,;4[4[4\\8[4[E_EZD[4J0J0J0J((,9,8(((((((9(((),8(*0J09,J5Z1_49,<4[4[4[9+4[5_EZ0J4[4Z0J0J0H,9,8((((((((,8(((9,((J0J,90Z0J0[4[5+4[4[4[4[4[4J0J0J4[4Z0J0J09,((((((((((),((((9,(0J0I,94J0K0K4[4[4[4[4[4[4J5Z0J0K4[4J0J0J(9(((((((((((9,((),9,*0J0I,;0J0Z0[4[4[4[4[4[4[0KDJ0J0[4Z0J0J0H7M;.**0H(((J0(((((0((((J(*0J0J0L9,9,YN9,9NANB.ANANANBNANANa,9,9NAL9,9,9*0H(((J0(((0J0((((J0J0H((0J9,9,9.9,9NANB0ANANAXRNANANa,9,9NQ,9,9,9(0H(((*0H(J0J(((((J0H(((((J1,9,aN9,9.AN90A[4NAXSLANAL9,9,aNAN9,9,9(0J(((*0J0J0((((((J(((((((J9,9,aNa,9,AL9.C-4ZIXY,9NA,9,96aNAN9,9,9(=3N\\+,8((((((,8(((),9((((((((,8(((((((J0J0J0[DJ0J1J0aNANAP`0J0J0J0JE[4[HJ0J0J09(((((((9((((,9(((((((((9,((((((*0J0J0K5_0J0J1[60J+4[I_0J0J0JE[4[4[0J0J0I,8(((((),8(((9,((((((((),8((((((0J0J0L8[EZ0JE[4[>K4[4[EZ0J0NE[4\\9,8J0J0J(4@WHR(((((J0H((0J(((((*0J((((0H((((((((0J((((((),9,94J.BV9,[RANB0ANANBVY,94ZRANJ0J69,9,8((*0J0J0((*0H((0J0J0H(((J0((((((((J0((((((,9,9,J0ANa,;VANANANANANcL9,cNANB2J0I,9,9((*0J(((H((0J(*0J0((J((((0H((((0J((((((((((9,92JRJ.APcVANANANANANAVcVcNANRRRRJ09,9,(*0H(((((((*0J0J(((*0((((J0((J0J0(((((((((),96RRR14ZANANANANANANANANANDZBRRRRRR,9,8*0H((((((((0J0(((((0J(((*0J0J0H(((((((((((,9,bRRS4[4ZANANANANANANAO4[4[2RRRRRJPa,9(0H(((((((((J0((((((*0((((J0J((((((((((((((9-*2RS4T\\[4[1NANANANAND[4[4U4RRRRRR2R29,0J((((((((((0H((((((0J(((*0H((((((((((((((),B0RRT[354[4ZANANANAND[4[34\\[2RRPJRR0AL8J0((((((((((J0((((((J0((((((((((((((((((((,APJPR[4[3;3;4ZANANAN\\[4[3;3;4RRRJ2JPINA*0((((((((((*0H((((((0H((((((((((((((((((((ANJ2RQ4[4[4T[;1NANAR[;4Z[54U4ZJRJRJPR8AN0H(((((((((((J0((((((J(((((((((((((((((((()N:0RRL[4[4[34\\O1NANL[4T[54[4[22JRRRJ0a.@J0((((((((((*0H(((((((((((((((((((((((((((,:0J2J=4[4[4[4[4NAO4[4[4[4[4[4XJ2RPR0J89*0H(((((((((((J((((((((((((((((((((((((((((90J0J/=[4[4[4[4[1O4[4[4[4[4[4[*0JRJ0J1),(J0(((((((0((*0H(((((((((((((((((((((((((()-*0J1)_4[4[4[4[4ND[4[4[4[4[4[5NJ9*0J1,,8*0H((((((0J((0J(((((((((((((((((((((((((((,D0J0L/E[4[4[4[4ZA[4[4[4[4[4[4^D0APIPL0A((J0((((((J((((((((((((((((((((((((((((((((9NJ0J.E_4[4[4[4[1[4[4[4[4[4[4[ANJ8B0J.AL((0J((((0J(((((((((((((((((((((((((((((((()NAXL.A_D[4[4[4[4Q4[4[4[4[4[4[5XAPIXJ0AN@((*0J0J0J(((((((((((((((((((((((((((((((((.AO*8AOE_4[4[4[4[4[4[4[4[4[4[5_ANL/*0INAH(((J0J0H((((((((((((((((((((((((((((((((((ALJ1)NE_E[4[4[4[1O4[4[4[4[4[4_E^ANAPJ2YN((((((((((((((((((((((((((((((((((((((((((),<1)NA?E_D[4[4[ANA[4[4[4[4[4_E_ENANB0Q,8((((((((((((((((((((((((((((((((((((((((((,9.ANAL=_E_D[5[5NAOD[4[4[4[4_E_E^ANANBL9(((((((((((((((((((((((((((((((((((((((((((9.ANAL9>=_E[E_5^ANAQ4[D[5[4[E_E_C2ANANA,,A.7(TJ4[4J0J0SVcVcVcT[4[:cVaNcVcVcVcTJ0J4[4Z0J4\\0J0J0J2cVcVcV[4[4cVcVcVcVcVc0J0J0K4Z0J0J0J0J0J0JVcVcV[4[4[VcVcVcVcTJ0J0J0J0J0J0J0J0J0J0[4cVcT[4[4[VcVc4bV[0J0J0J0J0J0J0J0J0J0J4[4[4Z0J4[4[4[4[4[4[0J0J0J0J0J0J0J0J0J0]>-9,8[4[4[4[4[5;<]>,4J0J0J0J0J0M==0M==6,8\\909,4[4[4[4[9+8`H\\8]=======:0OE_0M==I,:,9,9,J0J0J0J090:,:,:-===?E_EZ0J0J0M=======?E_=========?E========:0J0J0J0J0J0J0J0J0J0J0J0J0J0J0J0J0J0J0J0J0J0J0(((((((((((((((((((((((((((((((((((((((+H"),
+    brd = [BitMap.decode(brd1[0]), BitMap.decode(brd1[1])],
+    birdColors = [0, 3, 11, 35, 43, 59, 62, 122, 123, 127],
+    birdieFlap = "08191439093429143915590590798069081919181819181819143909079143918891509608",
+    title = BitMap.decode("c04JGWgggX(((0((.9U)N.)IXK2+dX4N)IXBN(]H+.)LX5.)LX6.+<X.0(LX4N)PX4N)XXBN(U(-.)LXC.)XXBN(TX-N)LXC:(EX,.(N8+6(J()@(6X)@(=X*@(<X(T(5H,:(JH*Z(DX,<(>8*\\(3()^(3(*:(7(*\\(5H+\\(JH*>(@X,<(:X*<(@X-N(TX,>(@X-<(@X+\\(I()P(1(*N(@X,.(Q(*N(5(.N(TX-N(E(*N(@X-0(XX+N(dX*N(1(*N(@X,0(M(*N(4X/.(TX-N(E(*N(@X-.(\\X+P(`X*N(3(+.(J(*b(0X/.(TX-N(G8*N(PX.N(F(-.(<X)@(@X,X(;8).(`X-N(TX+b(<X-.(\\X,8(LX*N(0X/N(UX)N(XX/.(TX-N(DX/N(PX.N(QX,.(<X).(dX/N(4X..(`X-N(TX+N(dX-.(\\X/.(HX*N(1(/.(dX)P(U(.N(TX-N(E(/.(PX.N(`X,.(<X)^(A(+\\(:X*<(A(-.(U(+^(A(,N(\\X+\\(HX*N(:H+V(6H*\\(:H+8(@X-X(:H+8(<X,^(6H,.(<X*Z(IH)Z(F8+8(EX+.(YX*Z(EX*N(NX)[MdH0L),H/L0dH0L),H/L018(P(1((R(-8)P(-8)R(-()0(-8(P0,H)*(,8),(0H),(08(L(DH)*(0H)L(<H),(,H(L(<I)2(,8),(0H)2(,H+L(08),(58),(08),(,H*L00H**(0H),(0H*,(DH)*(0H+,(0H)*(0H(L(<I)2(,8),(0X(R(,H+N(-8)R(0X(R(,H*Nc4H/,.4H+L,HH/,*(8I*(L8C0(-8(P(1((R(-8(L(18),(L8-J(T8+R(-8)0(-((R)48)2(08)0(,H)*(-8(R)`8**(0H(J(0H),(0H**(0H(L(0H*L(HH-J(TH+,(8H(L(,H(L(,8*,(081J(0H(L(08(L(,H(L(08(L(8H)*)`8**(0H(J(0H),(0H**(0H(L(18-V(D8+V(=8(L(08(J(0H(J(981J(0H)*(08(J(0H(L(08(R(-87,(48),(,8),(0H),(88),(,H*L(0H,,(M8,L(LH(L(08(J(0H(L(4H3*(0H)*(08(J(0H(L(08*,(,H8P(-8(J(0H).(,H*2(,X(R(0H,J(PX-*(E8(R(-8(P(-81J(18)*(-8)0(-8(R.084L*D8),(<92,*DH(L(8M(H((6("),
+    paused = BitMap.decode("_1J;efgg`((@)((+MU,I8(PX-.(LX+V(JX*Z)>H,0(LX,N(BH+>(?(1,(@X+P(LX,N(<X*N(@H/,(E(0L(DH+,(,X,.(LX*.(H8+,(`H,N)(H+N(<H),(HX,N(8H0,(`H-,)(H+N(8X),(HX,N(8H0,(`H-.(dH+N(8H)N(DX,N(8X/L(`H-.(dH+L(<H*,(DX,N(9(/,(`H-L(dH+.(8X*,(DX,N(=H-^(<H-L(fH*L(@H+.(LX+V(JX*L(TH/X(DH+,(@X,N(U8+,(`H-L(dH..(@X*N(LX.N(@H/,(TH/L([(*N(LX/.(<H/,(PX/L(W8+,(LX/.(<H/,(PX/L(TH,N(<H,L(dX*L(`H-,)(H-L(PH*N(DX*J(LX*L(`H,N)(H-.(PX*N(<X+.(@X+,(`H+P),H-,(TX+:(FX+`(;(1,(LX.,(I8-V(O(*;0Q(60(@8KJ(485J(48*J,D8)J(,X).(5()0(<8)J(9().(@X).(5()*(48)0(,X*.)48)J(,8)J(48)*(<8,*(48*J(48)J(<8)J(48)*(<8)J(08)J(48)*(4810(08)R(08*J(I(+*(48)J(<8)R(08*J(48)*(48)J(181*(<8)J(DX)N(<8,J(48)J(<8)J(DX)*(48)*(48)J(083*(<8)J(L8*J(<8,J(48)J(<8)J(L8)*(48)*(48)J(083*(<8*0(0X)N(@8-,(0X+*(9().(9()*(48)J(5.;H((6("),
+    gameovers = "PM`+`H((0)?U1=A-AE>>)<G^1DF\\<*05=6L-5QB,eR+8(89(040A,9,(((((J((AH(()H(((()((,8(((0J((AH((AH*0J0I(((((((0(0(AN((AH*(((((,I/(H((((((,(,(4+((4X)(((0H(*0J((,9,+4(4+(X)(((0(((0*()((,+((4[(X),9(0(((0*()((,+(((X4()(((0J0J0*()((,+((((4()((((((((*(((((+((((4(),9,(((((((((((((((((((((((1KH(-4))<(NW-((2RH((X((4+VcH(),9((RR*R((X(+(+H(6`)((,2((((P(+(+(+H((()((,2((((P(+(+(+V`(()((,2((((*H+4+(+HcH()(9,2((((*H(4+(+V(((),8((P(((*H(4[((6((()(8((RH((P((([((6cV`)(9(((2RR((((X((6`(()((,(((((((((((((((((((,D(08191439093429143915590590798069181915191559081914392419059608cV`)(9(((2RR((((X((6`(()((,(((((((((((((((((((,D(",
+    (gameover = BitMap.decode(gameovers)).transColor = -1,
+    gameover.palette[0] = [40, 40, 40],
+    state[99] = BitMap.decode("UZZGH(((7ggg`()W@X*F@*0KZ\\9**8J*;Z\\9*08:F>J09*+90.8`1)0,XN.8:08J08J,9*,9*,9*,9*.8J08J08J,9Z08J69*08:08T,8`/HJ69*08:08J69Z,9Z69*08:08J08J,9*,9*,9*,8:,9**9*/(Z/)01)*.9:(6("),
+    state[98] = BitMap.decode("+>;d((()gggg((/0;cC_C?)X("),
+    tetromino_colors = [[50, 50, 50], [138, 108, 255], [255, 100, 108], [100, 255, 100], [255, 108, 255], [255, 255, 108], [80, 230, 255], [255, 170, 50]],
+    tetrominos = "tr3x6cq".split("").map($=>($.charCodeAt(0) << 5).toString(2).padStart(16, "0").split("").map($=>"1" == $)),
+    lines = 0,
+    currentTetro = 2,
+    currentX = 3,
+    currentY = -2,
+    currentRot = 0,
+    next = 0,
+    x = 0,
+    y = 0,
+    i = w = W = 0,
+    nTetros = 0,
+    frame = 0,
+    gameTimer = null,
+    beenBelow = !1,
+    birds = [];
+    var currentMode = "WELCOME";
+    board = [];
+    for (let i = 0; i < 20; i++)
+        board.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+    function bwrldecode($) {
+        var J = []
+          , _ = 0;
+        for (let N = 0; N < $.length; N++) {
+            l = $.charCodeAt(N) - 34;
+            for (let e = 0; e < l; e++)
+                J.push(_);
+            _ = 1 - _
+        }
+        return J
+    }
+    board[16] = [5, 5, 0, 0, 0, 4, 6, 0, 0, 0],
+    board[17] = [5, 5, 1, 3, 4, 4, 6, 3, 3, 2],
+    board[18] = [7, 1, 1, 3, 4, 6, 6, 3, 2, 2],
+    board[19] = [7, 1, 2, 3, 0, 1, 2, 3, 0, 2];
+    var chk = bwrldecode(chkrl)
+      , seed = 123423427;
+    function randint($) {
+        return (seed = (51247 * seed + 12345) % 1048576) % $
+    }
+    function mheight($, J) {
+        let _ = map.length
+          , N = Math.ceil($ += _)
+          , e = Math.floor(J += _)
+          , t = e + 1
+          , H = (N - $) * map[e % _][(N - 1) % _] + (1 - (N - $)) * map[e % _][N % _]
+          , A = (N - $) * map[t % _][(N - 1) % _] + (1 - (N - $)) * map[t % _][N % _];
+        return (t - J) * H + (J - e) * A
+    }
+    function dot($, J) {
+        return $[0] * J[0] + $[1] * J[1] + $[2] * J[2]
+    }
+    function normalize($) {
+        return l = Math.sqrt(dot($, $)),
+        [$[0] / l, $[1] / l, $[2] / l]
+    }
+    function mnormal($, J) {
+        var _ = 50 * mheight(($ += 1e-5) - .5, J += 1e-5)
+          , N = 50 * mheight($, J - .5)
+          , e = 50 * mheight($ + .5, J)
+          , t = 50 * mheight($, J + .5)
+          , H = [1, 0, e - _]
+          , A = [0, 1, t - N];
+        return normalize([H[1] * A[2] - H[2] * A[1], H[2] * A[0] - H[0] * A[2], H[0] * A[1] - H[1] * A[0]])
+    }
+    function setPixel($, J, _, N, e, t, H=255, A=320, r=200) {
+        J < 0 || J >= A || _ < 0 || _ >= r || ($[(_ * A + J) * 4 + 0] = N,
+        $[(_ * A + J) * 4 + 1] = e,
+        $[(_ * A + J) * 4 + 2] = t,
+        $[(_ * A + J) * 4 + 3] = 255)
+    }
+    function drawBitMap($, J, _, N, e=!1) {
+        // CHANGE:
+        // This one verifies that we have not cheated with the numbers. Disable it
+        // 3 * nTetros < state[0] && (lines = 0, state[0] = 0, currentMode = "X");
+        for (let t = 0; t < N.height; t++)
+            for (let H = 0; H < N.width; H++) {
+                fx = e ? N.width - H - 1 : H;
+                var A = N.pixels[t * N.width + fx];
+                A != N.transColor && setPixel($, H + J, t + _, ...N.palette[A])
+            }
+    }
+    function drawBlock($, J, _, N) {
+        for (let e = 0; e < 6; e++)
+            for (let t = 0; t < 6; t++)
+                nc = [...N],
+                (0 == t || 5 == e) && (nc[0] /= 1.7,
+                nc[1] /= 1.7,
+                nc[2] /= 1.7),
+                setPixel($, J + t, _ + e, ...nc)
+    }
+    function drawTetro($, J, _, N, e, t) {
+        for (let H = 0; H < 4; H++)
+            for (let A = 0; A < 4; A++) {
+                let[r,X] = rotateXY(A, H, e)
+                  , o = [...tetromino_colors[N]];
+                tetrominos[N - 1][4 * X + r] && (_ + 6 * H >= 40 || t) && drawBlock($, J + 6 * A, _ + 6 * H, o)
+            }
+    }
+    function drawBoard($) {
+        for (let J = 0; J < 120; J++)
+            for (let _ = 0; _ < 60; _++)
+                l = 80 - Math.sqrt((30 - _) ** 2 + (20 - J / 3) ** 2),
+                _ > 3 && _ < 56 && J > 48 && J < 81 && chk[(J - 49) * 52 + (_ - 4)] && (l += 7),
+                setPixel($, 40 + _, 40 + J, l, l, l);
+        3 * nTetros < lines && (lines = 0,
+        state[0] = 0,
+        currentMode = "A"),
+        ("TETRIS" == currentMode || "PAUSE" == currentMode) && drawTetro($, 40 + 6 * currentX, 40 + 6 * currentY, currentTetro, currentRot, beenBelow);
+        for (let N = 0; N < 20; N++)
+            for (let e = 0; e < 10; e++)
+                if (board[N][e] > 0) {
+                    let t = [...tetromino_colors[board[N][e]]];
+                    drawBlock($, 40 + 6 * e, 40 + 6 * N, t)
+                }
+    }
+    function drawBirds($, J) {
+        for (let _ = 0; _ < birds.length; _++) {
+            let N = birds[_]
+              , e = brd[0];
+            N[6] && (e = brd[J % 3 % 2]),
+            drawBitMap($, Math.floor(N[0]), Math.floor(N[1]), e, N[2] < 0),
+            N[0] += 8 * N[2],
+            N[1] += 8 * N[3],
+            N[0] > 70 && N[0] < 220 && (N[2] = .95 * N[2] + .05 * N[4],
+            N[3] = .95 * N[3] + .05 * N[5],
+            N[6] = !0),
+            (N[0] < -60 || N[0] > 380) && N[6] && birds.splice(_, 1)
+        }
+        if (state[38] && x($, 130, 120, y("\\D6;bbW3L((8((8,@7gGg^Aggg_eG7eggCWgggG]fL<9,LX99,9<A=?=^c==E===U-,?CU<<9==.]_?EV]?EE==c99,:a=-,9-97(")),
+        0 == 51247 * J % 301) {
+            let t = randint(3) > 1
+              , H = 1 > randint(3)
+              , A = randint(40) - 40
+              , r = randint(10) + 5
+              , X = randint(10) + 3
+              , o = randint(10) + 5
+              , L = -randint(10) + 3
+              , a = normalize([r, X, 0])
+              , n = normalize([o, L, 0]);
+            t && birds.push([-40, A, a[0], a[1], n[0], n[1], !1]),
+            H && birds.push([330, A, -a[0], a[1], -n[0], n[1], !1])
+        }
+        if (1 < state[0] / 4e3)
+            for (let c = 0; c < 63; c++) {
+                q = W[parseInt(gameovers[c + 492])];
+                for (let d = 0; d < 7; d++)
+                    q % 2 && setPixel($, c + 130, d + 100, 0, 0, 0),
+                    q = Math.floor(q / 2)
+            }
+        if (state[39] && (state[43] = 16,
+        state[44] = 0,
+        state[45] = state[40],
+        state[39] = 0),
+        state[40]) {
+            let f = state[40]
+              , R = state[43]
+              , Z = state[41]
+              , g = state[42]
+              , P = state[44] > 40 ? brd[state[44] % 2] : brd[0];
+            state[44] > 50 && (f = state[44] - 60 + state[45] + 10,
+            R = Math.floor(-5 - ((state[44] - 50) / 7) ** 2) + 24),
+            drawTetro($, f, R, Z, g, !0),
+            drawBitMap($, state[44] - 58 + state[45], Math.floor(-2 - ((state[44] - 50) / 7) ** 2), P, !1),
+            state[44] += 3,
+            state[44] > 100 && (state[40] = 0)
+        }
+    }
+    function drawSky($) {
+        x = drawBitMap;
+        for (let J = 0; J < 100; J++)
+            for (let _ = 0; _ < width; _++) {
+                var N = (Math.sin(_ / 80 - .5) + 1) * 64 + (Math.sin(J / 40 - 1) + 1) * 64 - 20;
+                b = 255 - J / 20,
+                setPixel($, _, J, N, N, b)
+            }
+        w = birdieFlap,
+        W = birdColors;
+        for (let e = 0; e < w.length; e++) {
+            q = ~W[parseInt(w[e])];
+            for (let t = 0; t < 7; t++)
+                q % 2 && setPixel($, e + 120, t + 90, 0, 0, 0),
+                q = Math.floor(q / 2)
+        }
+        Math.abs(lines - state[0]) > 30 && (lines = 0,
+        state[0] = 0,
+        currentMode = "Q")
+    }
+    function drawTerrain($) {
+        let J = 0;
+        frame % 768 > 640 && (J = 384 - (frame % 768 - 640) * 3);
+        for (let _ = 0; _ < 400; _++) {
+            u2 = _ + J;
+            for (let N = 0; N < width; N++) {
+                var e = mheight(N / width * 150, u2 / 1.5)
+                  , t = mnormal(N / width * 150, u2 / 1.5)
+                  , H = normalize([-Math.sin(lines / 30 + .6), Math.cos(lines / 30 + .6), 1.414])
+                  , A = dot(t, H);
+                A = 150 + 120 * A;
+                let r = 120 - Math.round(70 * e + 20) + Math.round(.4 * _);
+                // CHANGE:
+                // I just commented out this which draws the terrain
+                // So the flag behind can be visible and the flag generated
+                // below when state[0] is bigge than 4 is drawn!
+                // for (v = 0; v < 3; v++)
+                //     setPixel($, N, r + v, A, A, 1.2 * A)
+            }
+            i = x
+        }
+        if (state[0] > 4) {
+            for (let X = 0; X < 20; X++)
+                for (let o = 0; o < 140; o++)
+                    setPixel($, o + 130, X + 140, 192, 240, 192);
+            i($, 140, 145, state[99]),
+            drawTerrain.a || (drawTerrain.a = 2),
+            i($, 197, 145, y(brd1[0].substring(269))),
+            i($, 254, 145, state[98])
+        }
+    }
+    map = generateHeightMap(map = [[.8, .1, .2, .8], [.8, .2, .2, .8], [.6, .1, 0, .6], [.5, .1, .2, .7]], .6, 6);
+
+    function drawFrame(frame) {
+        var imageData = ctx.getImageData(0, 0, width, height);
+        var fb = imageData.data;
+        drawSky(fb);
+        drawTerrain(fb);
+        drawBoard(fb);
+        if (currentMode == 'WELCOME' || currentMode == "GAMEOVER")
+            drawBitMap(fb, 110, 20, title);
+        if (currentMode == 'PAUSE')
+            drawBitMap(fb, 105, 80, paused);
+        if (currentMode == 'GAMEOVER')
+            drawBitMap(fb, 53, 70, gameover);
+        if (currentMode == 'CHEATER!')
+            drawBitMap(drawBitMap(fb, 86, 60, cheat));
+        drawBirds(fb, frame);
+        ctx.putImageData(imageData, 0, 0);
+    }
+
+    function removeLines() {
+        var y = 19;
+        var linesRemoved = 0;
+        while (y > 0) {
+            var full = true;
+            for (let x = 0; x < 10; x++) {
+                if (board[y][x] == 0)
+                    full = false;
+                else
+                    none = true;
+            }
+            if (full) {
+                linesRemoved += 1;
+                for (let u = y; u > 0; u--) {
+                    board[u] = [...board[u - 1]];
+                    board[0] = Array(10).fill(0);
+                }
+            } else
+                y--;
+        }
+        if (linesRemoved > 4) {
+            c();
+        } else {
+            lines += linesRemoved;
+            state[0] += linesRemoved;
+        }
+    }
+
+    function place() {
+        for (let y = 0; y < 4; y++) {
+            for (let x = 0; x < 4; x++) {
+                var [nx,ny] = rotateXY(x, y, currentRot);
+                if (tetrominos[currentTetro - 1][ny * 4 + nx]) {
+                    if (currentY + y >= 0)
+                        board[currentY + y][currentX + x] = currentTetro;
+                }
+            }
+        }
+    }
+
+    function rotateXY(x, y, rot) {
+        var nx = x
+          , ny = y;
+        if (rot % 2 == 1) {
+            nx = y;
+            ny = 3 - x;
+        }
+        if (rot > 1) {
+            nx = 3 - nx;
+            ny = 3 - ny;
+        }
+        return [nx, ny];
+    }
+
+    function stopTimer() {
+        window.clearInterval(gameTimer);
+    }
+
+    function startTimer() {
+        gameTimer = window.setInterval(moveDown, 800);
+    }
+
+    function newTetro() {
+        nTetros++;
+        let i = (max)=>Math.floor(Math.random() * max);
+        currentTetro = i(7) + 1;
+        currentX = 3;
+        currentY = -2;
+        currentRot = i(4);
+        beenBelow = false;
+        if (!notCollides(currentX, currentY, currentRot)) {
+            stopTimer();
+            currentMode = "GAMEOVER";
+        }
+    }
+
+    function notCollides(bx, by, rot) {
+        for (let y = 0; y < 4; y++) {
+            for (let x = 0; x < 4; x++) {
+                var [nx,ny] = rotateXY(x, y, rot);
+                if (tetrominos[currentTetro - 1][ny * 4 + nx]) {
+                    if (bx + x < 0 || bx + x > 9) {
+                        return false;
+                    }
+                    if (by + y > 19) {
+                        return false;
+                    }
+                    if (by + y >= 0 && board[by + y][bx + x] > 0) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    function rotate() {
+        if (notCollides(currentX, currentY, (currentRot + 1) % 4)) {
+            currentRot = (currentRot + 1) % 4;
+        }
+        drawFrame(frame);
+    }
+
+    function move(deltaX) {
+        if (notCollides(currentX + deltaX, currentY, currentRot)) {
+            currentX += deltaX;
+        }
+        drawFrame(frame);
+    }
+
+    function moveDown() {
+        if (notCollides(currentX, currentY + 1, currentRot)) {
+            currentY++;
+            if (currentY > 14)
+                beenBelow = true;
+        } else {
+            place();
+            removeLines();
+            newTetro();
+        }
+        drawFrame(frame);
+    }
+
+    function c() {
+        var id = ctx.getImageData(0, 0, width, height);
+        var fb = id.data;
+        drawBitMap(fb, 86, 60, cheat);
+        ctx.putImageData(id, 0, 0);
+        stopTimer();
+        currentMode = "CHEATER!"
+    }
+
+    function keyPress(e) {
+        if (currentMode == "TETRIS") {
+            if (e.code == "ArrowLeft") {
+                move(-1);
+            }
+            ;if (e.code == "ArrowRight") {
+                move(1);
+            }
+            ;if (e.code == "ArrowDown")
+                moveDown(1);
+            if (e.code == "ArrowUp" && beenBelow) {
+                if (currentY > -3) {
+                    currentY -= 1;
+                    drawFrame(frame);
+                } else {
+                    state[38] = state[39] = state[40] = 40 + currentX * 6;
+                    state[41] = currentTetro;
+                    state[42] = currentRot;
+                    newTetro();
+                }
+            }
+            if (e.code == "Space")
+                rotate();
+            if (e.code == "KeyP") {
+                currentMode = "PAUSE";
+                stopTimer();
+            }
+        } else if (currentMode == "PAUSE") {
+            if (e.code == "KeyP") {
+                currentMode = "TETRIS";
+                startTimer();
+            }
+        } else if (currentMode == "GAMEOVER" || currentMode == "WELCOME") {
+            if (e.code == "Enter") {
+                currentMode = "TETRIS";
+                board = [];
+                for (let i = 0; i < 20; i++) {
+                    board.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+                }
+                // CHANGE:
+                // I set my starting lines and number of tetros and state to 9999.
+                lines = 9999;
+                state[0] = 9999;
+                nTetros = 9999;
+                newTetro();
+                startTimer();
+            }
+        } else {
+            c();
+        }
+    }
+
+    document.addEventListener('keydown', keyPress);
+    frameTimer = window.setInterval(()=>drawFrame(frame++), 75);
+</script>

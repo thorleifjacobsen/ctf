@@ -16,6 +16,7 @@ My nickname is usually `Toffe` but in some cases I might be creative.
 | WackAttack                           |  2023/10 |      4th      |
 | Equinor CTF (Remote)                 |  2023/11 |      8th      |
 | NPST (PST)                           |  2023/12 |      DNF      |
+| HelseCTF                             |  2024/01 |      9th      |
 
 # Coding Calendar / Challenges
 
