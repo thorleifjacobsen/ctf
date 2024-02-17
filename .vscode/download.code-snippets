@@ -3,7 +3,7 @@
 		"scope": "markdown",
 		"prefix": "download",
 		"body": [
-			"[⬇ $1](./$1)$0",
+			"[⬇️ $1](./$1)$0",
 		],
 	}
 }

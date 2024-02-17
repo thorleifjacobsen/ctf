@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Search</title>
+</head>
+
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Popins", sans-serif;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 5%;
+    background-image: linear-gradient(rgba(0,8,51,0.9), rgba(0,8,51,0.9));
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid
+ {
+  display: grid;
+  grid-template-columns: repeat(2,500px);
+  grid-template-rows: repeat(3,500px);
+  grid-gap:10px 10px;
+}
+
+.grid-item{
+  padding:10px;
+}
+img {
+  width: 100%;
+  height: 80%;
+}
+</style>
+
+<body>
+    <div class="container">
+        <div class="grid">
+            <div class="grid-item">
+                <a href="/images?image=aqualith.jpg">
+                    <img src="/images/aqualith.jpg">
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="/images?image=crystallara.jpg">
+                    <img src="/images/crystallara.jpg">
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="/images?image=luminastris.jpg">
+                    <img src="/images/luminastris.jpg">
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="/images?image=nebuloria.jpg">
+                    <img src="/images/nebuloria.jpg">
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="/images?image=terravale.jpg">
+                    <img src="/images/terravale.jpg">
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="/images?image=zephyria.jpg">
+                    <img src="/images/zephyria.jpg">
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
