@@ -17,6 +17,8 @@ Here is a list of tools I've used during this CTF
 - [RSA Information](https://bitsdeep.com/posts/attacking-rsa-for-fun-and-ctf-points-part-1/)
 - [Image stegsolver all in one tool](https://www.aperisolve.com/)
 - [Webhook Site](https://www.webhook.site/)
+- [DogBolt online quick decompiler](https://dogbolt.org/)
+- [dCode.fr](https://www.dcode.fr/cipher-identifier)
 
 # Linux Software
 
