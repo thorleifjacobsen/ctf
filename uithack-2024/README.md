@@ -5,22 +5,23 @@ I managed to get 24/36 challenges completed. Got a 7th place on my team (me alon
     ✅ = Completed
     🏆 = Completed during CTF (within the 6 hours)
     ❌ = Not completed
+    🩸 = First Blood!
 
 # Progress
 
-> 24/36 completed (9 possible left and 3 unavailble)
+> 27/36 completed (9 possible left and 3 unavailble)
 
 ## crypto
 - Cosmic Caesar ✅ 🏆
 - Rapid Encryption ✅ 🏆
 - Alien Supremacy ✅ 🏆
 - A subpar encryption standard ✅ 🏆
-- Alienware ❌
-- 3D Cipher ❌
+- Alienware ✅
+- 3D Cipher ✅
 
 ## misc
 - Location ✅ 🏆
-- Hidden Covenant Info ❌
+- Hidden Covenant Info ✅
 - Needle in the Haystack ✅ 🏆
 - Deus-Ex ❌
 - Operation Galactic Dunk ❌
@@ -54,8 +55,8 @@ I managed to get 24/36 challenges completed. Got a 7th place on my team (me alon
 - Recover the lost keys ❌
 
 ## noob
-- Noob1 ✅ 🏆
-- Noob2 ✅ 🏆
+- Noob1 ✅ 🏆 🩸
+- Noob2 ✅ 🏆 🩸
 - Noob3 ✅ 🏆
 - Noob4 ✅ 🏆
 - Noob5 ✅ 🏆

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>3D Cipher</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	</head>
+	<body>
+        <style>
+            body { 
+                margin: 0; 
+            } 
+            canvas {
+                display: block;
+            }
+        </style>
+		
+		<script src="lib/three.js"></script>
+		<script src="lib/OrbitControls.js"></script>
+		<script>
+			const rotationSpeed = new THREE.Vector3( 0.5, 0.2, 0);
+
+			const Vertices = [
+					new THREE.Vector3( + 1, 0, + Math.SQRT1_2 ),
+					new THREE.Vector3( - 1, 0, + Math.SQRT1_2 ),
+					new THREE.Vector3( 0, + 1, - Math.SQRT1_2 ),
+					new THREE.Vector3( 0, - 1, - Math.SQRT1_2 )
+				],
+
+				Indices = [0, 1, 2,		0, 2, 3,	0, 3, 1,	1, 3, 2];
+
+			var camera, scene, renderer, startTime, object
+
+			function init() {
+				camera = new THREE.PerspectiveCamera(27, window.innerWidth / window.innerHeight, 1, 3500 );
+
+				camera.position.set( 0, 1.5, 4 );
+
+				scene = new THREE.Scene();
+                scene.background = new THREE.Color( 0x000000 );
+
+				// Lights
+				scene.add( new THREE.AmbientLight( 0xffffff, 0.7 ) );
+				const dirLight = new THREE.DirectionalLight( 0xffffff, 4.0 );
+				dirLight.position.set( 0, 2, 0 );
+				scene.add( dirLight );
+
+				// Geometry
+				object = new THREE.Group();
+				const geometry = new THREE.BoxGeometry( 0.18, 0.18, 0.18 );
+
+                var colours = [[0xcccccc, 0xb71234, 0x000000, 0x0046ad, 0x000000, 0xffd500],
+                               [0x000000, 0x000000, 0x000000, 0xffffff, 0x000000, 0xff5800],
+                               [0xffffff, 0x000000, 0x000000, 0xb71234, 0x000000, 0x0046ad],
+                               [0x000000, 0xffd500, 0x000000, 0x000000, 0x000000, 0x009b48],
+                               [0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0xff5800],
+                               [0x0046ad, 0x000000, 0x000000, 0x000000, 0x000000, 0xffd500],
+                               [0x000000, 0x009b48, 0xff5800, 0x000000, 0x000000, 0xffd500],
+                               [0x000000, 0x000000, 0xffd500, 0x000000, 0x000000, 0xff5800],
+                               [0xffffff, 0x000000, 0xff5800, 0x000000, 0x000000, 0x0046ad],
+                            
+                               [0x000000, 0xffffff, 0x000000, 0x0046ad, 0x000000, 0x000000],
+                               [0x000000, 0x000000, 0x000000, 0xffd500, 0x000000, 0x000000],
+                               [0x0046ad, 0x000000, 0x000000, 0xff5800, 0x000000, 0x000000],
+                               [0x000000, 0x009b48, 0x000000, 0x000000, 0x000000, 0x000000],
+                               [0x000000, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000],
+                               [0x0046ad, 0x000000, 0x000000, 0x000000, 0x000000, 0x000000],
+                               [0x000000, 0xffd500, 0xb71234, 0x000000, 0x000000, 0x000000],
+                               [0x000000, 0x000000, 0xffffff, 0x000000, 0x000000, 0x000000],
+                               [0x009b48, 0x000000, 0xff5800, 0x000000, 0x000000, 0x000000],
+                            
+                               [0x000000, 0xffd500, 0x000000, 0xff5800, 0x0046ad, 0x000000],
+                               [0x000000, 0x000000, 0x000000, 0x009b48, 0xb71234, 0x000000],
+                               [0x009b48, 0x000000, 0x000000, 0xffffff, 0xb71234, 0x000000],
+                               [0x000000, 0xb71234, 0x000000, 0x000000, 0xffffff, 0x000000],
+                               [0x000000, 0x000000, 0x000000, 0x000000, 0xb71234, 0x000000],
+                               [0x0046ad, 0x000000, 0x000000, 0x000000, 0xb71234, 0x000000],
+                               [0x000000, 0x009b48, 0xff5800, 0x000000, 0xffffff, 0x000000],
+                               [0x000000, 0x000000, 0xffffff, 0x000000, 0x009b48, 0x000000],
+                               [0xffd500, 0x000000, 0xb71234, 0x000000, 0x009b48, 0x000000]];
+
+                let i = 0;
+				for ( let z = - 1; z <= 1; ++ z ){
+					for ( let y = - 1; y <= 1; ++ y ){
+						for ( let x = - 1; x <= 1; ++ x ) {
+                            const faceMaterials = colours[i++].map(function(c) {
+                                return new THREE.MeshLambertMaterial({ color: c });
+                            });
+
+							const mesh = new THREE.Mesh( geometry, faceMaterials );
+							mesh.position.set( x / 5, y / 5, z / 5 );
+							object.add( mesh );
+						}
+                    }
+                }
+
+				scene.add( object );
+
+				const vertices = [];
+
+				for ( let i = 0; i < 20000; i ++ ) {
+                    const x = THREE.MathUtils.randFloatSpread( 2000 );
+                    const y = THREE.MathUtils.randFloatSpread( 2000 );
+                    const z = THREE.MathUtils.randFloatSpread( 2000 );
+
+					vertices.push( x, y, z );
+				}
+
+                const particleGeometry = new THREE.BufferGeometry();
+				particleGeometry.setAttribute( 'position', new THREE.Float32BufferAttribute( vertices, 3 ) );   
+                     
+                const particleMaterial = new THREE.PointsMaterial( { color: 0x888888 } );
+                const particles = new THREE.Points( particleGeometry, particleMaterial);
+				scene.add( particles );
+
+				// Renderer
+				const container = document.body;
+
+				renderer = new THREE.WebGLRenderer();
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight);
+				window.addEventListener( 'resize', onWindowResize );
+				container.appendChild( renderer.domElement );
+
+				// Controls
+				const controls = new OrbitControls( camera, renderer.domElement );
+				controls.minDistance = 1;
+				controls.maxDistance = 8;
+				controls.target.set( 0, 1, 0 );
+				controls.update();
+
+				startTime = Date.now();
+			}
+
+			function onWindowResize() {
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+			}
+
+			function animate() {
+				const currentTime = Date.now(),
+					time = ( currentTime - startTime ) / 1000;
+
+				requestAnimationFrame( animate );
+
+				object.position.y = 1;
+				// object.rotation.x = time * rotationSpeed.x;
+				// object.rotation.y = time * rotationSpeed.y;
+
+				object.updateMatrix();
+
+				renderer.render( scene, camera );
+			}
+
+			init();
+			animate();
+
+		</script>
+	</body>
+</html>
