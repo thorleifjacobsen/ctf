@@ -1,0 +1,62 @@
+<CTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Tip hotline</title>
+    </head>
+    <body>
+        <h2>Please upload your anonymous tip here</h2>
+        <input type="file" id="fileInput" />
+        <button id="uploadButton">Upload</button>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+        <script>
+        document.getElementById('uploadButton').addEventListener('click', function() {
+        const fileInput = document.getElementById('fileInput');
+        const originalFile = fileInput.files[0];
+    
+        if (!originalFile) {
+            alert('Please select a file to upload.');
+            return;
+        }
+    
+        // Get cookie value
+        const userCookie = getCookie('user');
+        if (!userCookie) {
+            alert('User cookie not found.');
+            return;
+        }
+    
+        // Get current timestamp in minutes
+        const timestamp = Math.floor(Date.now() / 60000);
+    
+        // Generate filename
+        const rawString = userCookie + timestamp;
+        const secure = CryptoJS.MD5(rawString).toString();
+        const newFileName = secure + '.txt';
+    
+        // Create FormData and append the file
+        const formData = new FormData();
+        formData.append('file', originalFile, newFileName);
+    
+        // Upload file
+        // Replace 'your-server-endpoint' with your actual upload handling endpoint
+        fetch('upload-tips', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error(error));
+    });
+    
+    // Function to get cookie by name
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+    
+        </script>
+    </body>
+    </html>
