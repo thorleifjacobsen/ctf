@@ -1,0 +1,29 @@
+<html>
+
+<head>
+	<script src="/static/main.js" defer></script>
+	<link rel="stylesheet" href="/static/main.css" />
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="center">Magical thumbnail creator</h1>
+		<p class="center">Create thumbnails of your images effortlessly</p>
+		<form id="form" class="container center">
+			<div class="file-area container">
+				<input type="file" id="file" required />
+				<div class="file-dummy center">
+					<span class="default">Click to select a file, or drag it here</span>
+					<span class="success">File selected</span>
+				</div>
+			</div>
+			<input type="submit" value="make thumbnail" class="button" />
+		</form>
+		<div id="results" class="container center" style="display: none;">
+			<img id="resized_img" class="center" src="" />
+			<a id="resized_download" class="center button" href="" download="resized.png">download</a>
+		</div>
+	</div>
+</body>
+
+</html>

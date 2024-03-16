@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# don't send 2 GB of useless build files as docker context
+(cd src; cargo clean)
+sudo docker build -t kindofmagick --build-arg="FLAG=flag{test}" .
+sudo docker run --rm -it -p 1337:1337 kindofmagick

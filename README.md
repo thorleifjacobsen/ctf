@@ -6,6 +6,7 @@ My nickname is usually `Toffe` but in some cases I might be creative.
 
 | **CTF**                              | **Date** | **Placement** |
 |--------------------------------------|:--------:|:-------------:|
+| 1753ctf                              |  2024/03 |      21th     |
 | SAK 24 (UiA CTF)                     |  2024/02 |      1th      |
 | UiTHack                              |  2024/02 |      7th      |
 | HelseCTF                             |  2024/01 |      9th      |

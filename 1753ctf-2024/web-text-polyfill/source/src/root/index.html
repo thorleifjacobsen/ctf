@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMG.PFILL</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <style>
+        html {
+            background-color: #020528;
+            font-family: "Roboto", sans-serif;
+        }
+
+        body {
+            display: flex;
+            max-width: 800px;
+            margin: 0 auto;
+            justify-content: center;
+            align-content: center;
+            height: 100vh;
+        }
+
+        body>div {
+            width: 50%;
+            height: 50vh;
+            text-align: center;
+            align-self: center;
+        }
+
+        #logo {
+            width: 300px;
+        }
+
+        .main {
+            height: auto;
+            padding: 25px;
+            background-color: #0dbbfe;
+            border-radius: 10px;
+            color: white;
+            opacity: 0.9;
+        }
+
+        form {
+            text-align: left;
+            width: 95%;
+            margin: 0 auto;
+        }
+
+        label {
+            width: 30%;
+            display: inline-block;
+        }
+
+        input {
+            border: 0px;
+            height: 20px;
+            border-radius: 4px;
+            padding: 4px 8px;
+            width: 60%;
+            margin-top: 6px;
+        }
+
+        button {
+            background-color: white;
+            border: none;
+            padding: 10px 40px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            transition: all 0.5s;
+        }
+
+        button:hover {
+            background-color: #020528;
+            color: white;
+            transform: scale(1.2);
+        }
+
+        .main img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img id="logo" src="/logo.png">
+    </div>
+    <div class="main">
+        <h2>Process file:</h2>
+        <form id="processForm" action="/process" enctype="multipart/form-data" method="POST">
+            <label>Text: </label><input type="text" placeholder="enter text" name="text" value="" /><br />
+            <label>Image: </label><input type="file" name="image" /><br />
+        </form>
+
+        <button id="sendButton">SEND</button>
+
+        <div id="resultDiv"></div>
+    </div>
+
+    <script>
+        sendButton.addEventListener('click', function (event) {
+
+            var loadingP = document.createElement("p");
+            loadingP.innerText = "Loading..."
+            resultDiv.replaceChildren(loadingP);
+
+            var formData = new FormData(processForm);
+
+            fetch('/process', {
+                method: "POST",
+                body: formData
+            })
+                .then(response => response.blob())
+                .then(blob => {
+                    const reader = new FileReader();
+
+                    reader.onloadend = function () {
+                        var resultImg = document.createElement("img");
+                        resultImg.src = reader.result;
+                        resultDiv.replaceChildren(resultImg);
+                    }
+
+                    reader.readAsDataURL(blob);
+                })
+        });
+    </script>
+</body>
+
+</html>
