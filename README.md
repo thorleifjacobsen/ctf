@@ -2,10 +2,11 @@
 
 Here is a quick overview over the CTF's documented here. `DNF` means I did not finish the CTF. And `-` will mean either there is no placement table or I did not save it.
 
-My nickname is usually `Toffe` but in some cases I might be creative.
+My nickname is usually `Toffe` but in some cases I might be creative or in a team.
 
 | **CTF**                              | **Date** | **Placement** |
 |--------------------------------------|:--------:|:-------------:|
+| WackAttack                           |  2024/10 |      8th      |
 | 1753ctf                              |  2024/03 |      21th     |
 | SAK 24 (UiA CTF)                     |  2024/02 |      1th      |
 | UiTHack                              |  2024/02 |      7th      |
