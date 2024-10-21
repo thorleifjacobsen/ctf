@@ -5,5 +5,12 @@
 		"body": [
 			"[⬇️ $1](./$1)$0",
 		],
-	}
+	},
+	"Writeup Template": {
+		"scope": "markdown",
+		"prefix": "writeup",
+		"body": [
+			"# $1\n\n# Writeup\n\n$0\n\n# Flag\n\n```\n\n```",
+		],
+	},
 }

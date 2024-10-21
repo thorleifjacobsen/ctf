@@ -2,6 +2,12 @@
 
 Here is a list of tools I've used during this CTF
 
+## Things to think about
+
+- Race Condition
+- Buffer Overflow
+- Injections
+
 ## Basic linux commands
 
 - hexdump (gets a full hexdump from the file)
@@ -16,6 +22,7 @@ Here is a list of tools I've used during this CTF
 - [DotNet Fiddle](https://dotnetfiddle.net/)
 - [RSA Information](https://bitsdeep.com/posts/attacking-rsa-for-fun-and-ctf-points-part-1/)
 - [Image stegsolver all in one tool](https://www.aperisolve.com/)
+- [StegOnline](https://stegonline.georgeom.net/upload)
 - [Webhook Site](https://www.webhook.site/)
 - [DogBolt online quick decompiler](https://dogbolt.org/)
 - [dCode.fr](https://www.dcode.fr/cipher-identifier)
