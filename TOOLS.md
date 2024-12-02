@@ -7,6 +7,7 @@ Here is a list of tools I've used during this CTF
 - Race Condition
 - Buffer Overflow
 - Injections
+- Cipher Identifiers
 
 ## Basic linux commands
 
