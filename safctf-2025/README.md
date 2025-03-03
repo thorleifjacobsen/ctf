@@ -6,9 +6,9 @@ This time I was in a team on `give cake` and only have writeups for those I solv
 
 | **Category**      | **Name**                                                         |
 |-------------------|------------------------------------------------------------------|
-| Mixed Discipine   | [More Encryption](./crypto-more-encryption/)                     |
-| Mixed Discipine   | [Authorized Access Only](./pwn-authorized-access-only/)          |
-| Mixed Discipine   | [Stronger Auth](./pwn-stronger-auth/)                            |
+| Mixed Discipine   | [Order Matters!](./Mixed%20Discipine/Order%20Matters!/)          |
+| Mixed Discipine   | [Super Ls](./Mixed%20Discipine/Super-ls/)                        |
+| Mixed Discipine   | [.GGRX](./Mixed%20Discipine/.GGRX)                               |
 | PHP Challenges    | [Get admin](./PHP%20Challenges/Get%20admin/)                     |
 | PHP Challenges    | [Directory traversal](./PHP%20Challenges/Directory%20traversal/) |
 | PHP Challenges    | [Prizes](./PHP%20Challenges/Prizes/)                             |
