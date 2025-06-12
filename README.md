@@ -6,7 +6,8 @@ My nickname is usually `Toffe` but in some cases I might be creative or in a tea
 
 | **CTF**                              | **Date** | **Placement** |
 |--------------------------------------|:--------:|:-------------:|
-| SAF 24 (UiA CTF)                     |  2025/03 |      1th      |
+| Nahamcon                             |  2025/05 |      1th      |
+| SAF 25 (UiA CTF)                     |  2025/03 |      1th      |
 | UiTHack                              |  2025/02 |      31th     |
 | WackAttack                           |  2024/10 |      8th      |
 | 1753ctf                              |  2024/03 |      21th     |
