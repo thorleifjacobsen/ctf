@@ -24,14 +24,17 @@ But lets not start there, lets do it the intended way.
 
 # Flags
 
-[Flag 1 - Easy](./flag1/)
-[Flag 2 - Comms](./flag2/|)
-[Flag 3 - Creds](./flag3/)
-[Flag 4 - Firmware](./flag4/)
-[Flag 5 - Authorized](./flag5/)
-[Flag 6 - Respond](./flag6/)
-[Flag 7 - Secure](./flag7/)
-[All - Alternative way](./fastlane/)
+| **Flag No** | **Title**     | **Description**                             | **Link**                     |
+|-------------|---------------|---------------------------------------------|------------------------------|
+| Flag 1      | Easy          | Free flag shown when browsing the webserver | [Link](./flag1/)             |
+| Flag 2      | Comms         | Serial port flag                            | [Link](./flag2/)             |
+| Flag 3      | Creds         | Hidden HTML on credits page                 | [Link](./flag3/)             |
+| Flag 4      | Firmware      | In firmware source                          | [Link](./flag4/)             |
+| Flag 5      | Authorized    | Javascript bypass                           | [Link](./flag5/)             |
+| Flag 6      | Respond       | SSID discovery                              | [Link](./flag6/)             |
+| Flag 7      | Secure        | File system access                          | [Link](./flag7/)             |
+| All         | Alternative way | Reversing source                          | [Link](./fastlane/)          |
+
 
 # Conclusion
 
