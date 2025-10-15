@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Wild Tiger — Minimal Shop</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    :root{
+      --tiger-orange:#ff8c1a;
+      --tiger-deep:#2b1608;
+      --muted:#777;
+      --card:#fff6ef;
+      --accent:#ffb366;
+      --radius:10px;
+    }
+
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(255,200,120,0.06), transparent 8%),
+        repeating-linear-gradient( -45deg, rgba(0,0,0,0.02) 0 10px, transparent 10px 20px),
+        linear-gradient(180deg,#fff 0%, #fff9f2 100%);
+      color:var(--tiger-deep);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:36px 16px;
+      box-sizing:border-box;
+      display:flex;
+      justify-content:center;
+    }
+
+    .container{
+      width:100%;
+      max-width:920px;
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      margin-bottom:20px;
+    }
+
+    .logo{
+      width:84px;
+      height:84px;
+      border-radius:18px;
+      background:linear-gradient(135deg,var(--tiger-orange),#ffb84d);
+      box-shadow:0 6px 18px rgba(43,22,8,0.12), inset 0 -6px 18px rgba(0,0,0,0.06);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:44px;
+      color:var(--tiger-deep);
+      font-weight:900;
+      transform:rotate(-8deg);
+      border:3px solid rgba(0,0,0,0.06);
+    }
+
+    h1{
+      margin:0;
+      font-size:28px;
+      letter-spacing:0.6px;
+      font-weight:900;
+      color:var(--tiger-deep);
+    }
+
+    p.lead{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-weight:600;
+    }
+
+    form{
+      background:linear-gradient(180deg,var(--card),#fff);
+      border-radius:var(--radius);
+      padding:18px;
+      margin-bottom:18px;
+      box-shadow:0 8px 30px rgba(43,22,8,0.06);
+      border:1px solid rgba(43,22,8,0.06);
+    }
+
+    h2{
+      margin:0 0 10px 0;
+      font-size:16px;
+      font-weight:900;
+      color:var(--tiger-deep);
+      letter-spacing:0.8px;
+      text-transform:uppercase;
+    }
+
+    label{display:block;margin-top:10px;font-weight:800;color:var(--tiger-deep)}
+    input,select,button{
+      width:100%;
+      padding:10px 12px;
+      margin-top:8px;
+      border-radius:8px;
+      border:1px solid rgba(0,0,0,0.06);
+      box-sizing:border-box;
+      font-size:15px;
+    }
+
+    input:focus, select:focus{
+      outline:none;
+      box-shadow:0 4px 18px rgba(255,140,26,0.12);
+      border-color:var(--accent);
+    }
+
+    button{
+      background:var(--tiger-deep);
+      color:#fff;
+      font-weight:900;
+      border:none;
+      cursor:pointer;
+      padding:12px;
+      margin-top:14px;
+      letter-spacing:0.6px;
+      transition:transform .08s ease, box-shadow .08s ease;
+    }
+    button:hover{transform:translateY(-1px); box-shadow:0 8px 24px rgba(43,22,8,0.12)}
+    button.secondary{
+      background:transparent;
+      color:var(--tiger-deep);
+      border:2px solid rgba(43,22,8,0.06);
+      font-weight:800;
+    }
+
+    .hint{color:var(--muted);font-size:13px;margin-top:8px}
+    ul{margin:8px 0 0 20px;color:var(--muted)}
+    pre{background:#fff2e6;padding:12px;border-radius:8px;border:1px solid rgba(43,22,8,0.04);overflow:auto}
+
+    .split{display:grid;grid-template-columns:1fr 320px;gap:18px}
+    @media (max-width:860px){ .split{grid-template-columns:1fr} .logo{width:70px;height:70px;font-size:36px} }
+
+    .shop-card{display:flex;flex-direction:column;gap:8px}
+    .item-row{display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:8px;background:linear-gradient(180deg,rgba(255,255,255,0.6),transparent);border:1px solid rgba(0,0,0,0.03)}
+    .item-name{font-weight:800}
+    .price{font-weight:900;color:var(--tiger-orange)}
+    footer{color:var(--muted);font-size:13px;margin-top:6px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">🐯</div>
+      <div>
+        <h1>Wild Tiger — Shop</h1>
+        <p class="lead">Bold deals. Wild tigers. Hunt the flag.</p>
+      </div>
+    </header>
+
+    <div class="split">
+      <div>
+        <form action="/accounts" method="post">
+          <h2>Create account</h2>
+          <div class="hint">Server logs the created account ID in its console. Save that ID — required for purchases.</div>
+
+          <label for="name">Name</label>
+          <input id="name" name="name" placeholder="wack" />
+
+          <label for="pincode">Pincode (string, max 16 chars)</label>
+          <input id="pincode" name="pincode" placeholder="1234" required maxlength="16" />
+
+          <button type="submit">Create account</button>
+        </form>
+
+        <form action="/purchase" method="post">
+          <h2>Purchase item</h2>
+
+          <label for="from">Account ID</label>
+          <input id="from" name="from" placeholder="paste account id you saved from server log" required />
+
+          <label for="pinBuy">Pincode</label>
+          <input id="pinBuy" name="pincode" placeholder="your pincode" required maxlength="16" />
+
+          <label for="item">Item</label>
+          <select id="item" name="item">
+            <option value="console dream">console dream — 1</option>
+            <option value="biltema burger">biltema burger — biltema burger (~77)</option>
+            <option value="flag">flag — 1337</option>
+          </select>
+
+          <button type="submit">Buy</button>
+        </form>
+      </div>
+
+      <aside>
+        <section class="shop-card">
+          <h2 style="text-transform:none">Featured</h2>
+          <div class="item-row"><div class="item-name">console dream</div><div class="price">1</div></div>
+          <div class="item-row"><div class="item-name">biltema burger</div><div class="price">~77</div></div>
+          <div class="item-row" style="border-color:rgba(255,140,26,0.12)"><div class="item-name">flag</div><div class="price">1337</div></div>
+        </section>
+      </aside>
+    </div>
+
+    <footer>
+      <div class="hint">GUI was made with AI and tigers</div>
+    </footer>
+  </div>
+</body>
+</html>

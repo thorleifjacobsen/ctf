@@ -1,0 +1,153 @@
+[gd_scene load_steps=7 format=4 uid="uid://xgbhf5upn2cy"]
+
+[ext_resource type="Script" uid="uid://cbwklaf83oet0" path="res://scripts/ept_training.gd" id="1"]
+[ext_resource type="FontFile" uid="uid://q6t5tdmnvs7b" path="res://assets/fonts/small_pixel.ttf" id="2"]
+[ext_resource type="PackedScene" uid="uid://1kr2nadn0usi" path="res://scenes/target.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://d1ci5cd2r4asm" path="res://scenes/gandalf.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://cb83b4ld3037i" path="res://scenes/dialog_area.tscn" id="5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ijjmd"]
+radius = 18.0
+
+[node name="EptTrainingChallenge" type="Node2D"]
+script = ExtResource("1")
+
+[node name="Labels" type="Node2D" parent="."]
+
+[node name="lab_0" type="Label" parent="Labels"]
+offset_left = -65.0
+offset_top = 9.0
+offset_right = -55.0
+offset_bottom = 25.0
+scale = Vector2(0.560001, 0.560001)
+theme_override_colors/font_color = Color(0.839216, 0.839216, 0.839216, 0.494118)
+theme_override_fonts/font = ExtResource("2")
+text = "0"
+horizontal_alignment = 1
+
+[node name="lab_1" type="Label" parent="Labels"]
+offset_left = -45.0
+offset_top = 9.0
+offset_right = -35.0
+offset_bottom = 25.0
+scale = Vector2(0.560001, 0.560001)
+theme_override_colors/font_color = Color(0.839216, 0.839216, 0.839216, 0.494118)
+theme_override_fonts/font = ExtResource("2")
+text = "1"
+horizontal_alignment = 1
+
+[node name="lab_2" type="Label" parent="Labels"]
+offset_left = -26.0
+offset_top = 9.0
+offset_right = -16.0
+offset_bottom = 25.0
+scale = Vector2(0.560001, 0.560001)
+theme_override_colors/font_color = Color(0.839216, 0.839216, 0.839216, 0.494118)
+theme_override_fonts/font = ExtResource("2")
+text = "2"
+horizontal_alignment = 1
+
+[node name="lab_3" type="Label" parent="Labels"]
+offset_left = -8.0
+offset_top = 9.0
+offset_right = 2.0
+offset_bottom = 25.0
+scale = Vector2(0.560001, 0.560001)
+theme_override_colors/font_color = Color(0.839216, 0.839216, 0.839216, 0.494118)
+theme_override_fonts/font = ExtResource("2")
+text = "3"
+horizontal_alignment = 1
+
+[node name="lab_4" type="Label" parent="Labels"]
+offset_left = 12.0
+offset_top = 9.0
+offset_right = 22.0
+offset_bottom = 25.0
+scale = Vector2(0.560001, 0.560001)
+theme_override_colors/font_color = Color(0.839216, 0.839216, 0.839216, 0.494118)
+theme_override_fonts/font = ExtResource("2")
+text = "4"
+horizontal_alignment = 1
+
+[node name="lab_5" type="Label" parent="Labels"]
+offset_left = 30.0
+offset_top = 9.0
+offset_right = 40.0
+offset_bottom = 25.0
+scale = Vector2(0.560001, 0.560001)
+theme_override_colors/font_color = Color(0.839216, 0.839216, 0.839216, 0.494118)
+theme_override_fonts/font = ExtResource("2")
+text = "5"
+horizontal_alignment = 1
+
+[node name="lab_6" type="Label" parent="Labels"]
+offset_left = 49.0
+offset_top = 9.0
+offset_right = 59.0
+offset_bottom = 25.0
+scale = Vector2(0.560001, 0.560001)
+theme_override_colors/font_color = Color(0.839216, 0.839216, 0.839216, 0.494118)
+theme_override_fonts/font = ExtResource("2")
+text = "6"
+horizontal_alignment = 1
+
+[node name="lab_7" type="Label" parent="Labels"]
+offset_left = 69.0
+offset_top = 9.0
+offset_right = 79.0
+offset_bottom = 25.0
+scale = Vector2(0.560001, 0.560001)
+theme_override_colors/font_color = Color(0.839216, 0.839216, 0.839216, 0.494118)
+theme_override_fonts/font = ExtResource("2")
+text = "7"
+horizontal_alignment = 1
+
+[node name="Targets" type="Node2D" parent="."]
+
+[node name="0" parent="Targets" instance=ExtResource("3")]
+position = Vector2(-62, -2)
+
+[node name="1" parent="Targets" instance=ExtResource("3")]
+position = Vector2(-43, -2)
+
+[node name="2" parent="Targets" instance=ExtResource("3")]
+position = Vector2(-24, -2)
+
+[node name="3" parent="Targets" instance=ExtResource("3")]
+position = Vector2(-5, -2)
+
+[node name="4" parent="Targets" instance=ExtResource("3")]
+position = Vector2(14, -2)
+
+[node name="5" parent="Targets" instance=ExtResource("3")]
+position = Vector2(33, -2)
+
+[node name="6" parent="Targets" instance=ExtResource("3")]
+position = Vector2(52, -2)
+
+[node name="7" parent="Targets" instance=ExtResource("3")]
+position = Vector2(71, -2)
+
+[node name="equation" type="Label" parent="."]
+offset_left = -26.0
+offset_top = -41.0
+offset_right = 22.0
+offset_bottom = -18.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.45098)
+theme_override_fonts/font = ExtResource("2")
+text = "10+5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Gandalf" parent="." instance=ExtResource("4")]
+position = Vector2(0, 29)
+
+[node name="DialogArea" parent="Gandalf" instance=ExtResource("5")]
+position = Vector2(-13, 16)
+dialog_key = "gandalf"
+
+[node name="CollisionShape2D" parent="Gandalf/DialogArea" index="0"]
+position = Vector2(14, -7)
+shape = SubResource("CircleShape2D_ijjmd")
+
+[editable path="Gandalf/DialogArea"]

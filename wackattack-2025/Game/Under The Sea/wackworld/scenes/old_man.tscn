@@ -1,0 +1,115 @@
+[gd_scene load_steps=17 format=4 uid="uid://boy5fqxakl72w"]
+
+[ext_resource type="Script" uid="uid://mnidgtrmffyf" path="res://scripts/old_man.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://ctbv56n42wgpl" path="res://assets/charchters/MiniOldMan.png" id="2"]
+[ext_resource type="PackedScene" uid="uid://cb83b4ld3037i" path="res://scenes/dialog_area.tscn" id="3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5643s"]
+atlas = ExtResource("2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdlgl"]
+atlas = ExtResource("2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33qua"]
+atlas = ExtResource("2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67335"]
+atlas = ExtResource("2")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isgn0"]
+atlas = ExtResource("2")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jm8um"]
+atlas = ExtResource("2")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3kbb"]
+atlas = ExtResource("2")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t3ve"]
+atlas = ExtResource("2")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rneiv"]
+atlas = ExtResource("2")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78ceb"]
+atlas = ExtResource("2")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cnhgb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5643s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdlgl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33qua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67335")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_isgn0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jm8um")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3kbb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6t3ve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rneiv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78ceb")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5643s"]
+size = Vector2(10, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_33qua"]
+radius = 11.0
+
+[node name="OldMan" type="StaticBody2D"]
+script = ExtResource("1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cnhgb")
+animation = &"walk"
+frame_progress = 0.0425622
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_5643s")
+
+[node name="DialogArea" parent="." instance=ExtResource("3")]
+dialog_key = "old_man"
+
+[node name="CollisionShape2D" parent="DialogArea" index="0"]
+position = Vector2(0, 9)
+shape = SubResource("CircleShape2D_33qua")
+
+[editable path="DialogArea"]

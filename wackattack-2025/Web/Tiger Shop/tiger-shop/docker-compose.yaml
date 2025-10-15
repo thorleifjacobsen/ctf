@@ -1,0 +1,45 @@
+services:
+  tb-format:
+    image: ghcr.io/tigerbeetle/tigerbeetle
+    security_opt:
+      - seccomp=unconfined
+    volumes:
+      - ./data:/data
+    command: >
+      format --cluster=0 --replica=0 --replica-count=1 /data/0_0.tigerbeetle
+    restart: "no"
+
+  tigerbeetle:
+    image: ghcr.io/tigerbeetle/tigerbeetle
+    security_opt:
+      - seccomp=unconfined
+    volumes:
+      - ./data:/data
+    depends_on:
+      - tb-format
+    command: >
+      start --addresses=0.0.0.0:3000 /data/0_0.tigerbeetle
+    networks:
+      tigerbeetle_network:
+        ipv4_address: 172.36.0.2
+  
+  server:
+    build: .
+    security_opt:
+      - seccomp=unconfined
+    ports:
+      - "9991:3001"
+    depends_on:
+      - tigerbeetle
+    environment:
+      - TB_ADDRESS=172.36.0.2:3000
+      - FLAG=${WEB_TIGER_SHOP:-sorryiambad}
+    networks:
+      tigerbeetle_network:
+
+networks:
+  tigerbeetle_network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.36.0.0/16

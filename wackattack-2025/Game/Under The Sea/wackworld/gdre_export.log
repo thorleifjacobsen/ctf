@@ -1,0 +1,36 @@
+GDRE Tools v1.0.2
+Windows 10.0.26100, NVIDIA GeForce RTX 3060, opengl3
+Opening file: //wsl.localhost/kali-linux/home/toffe/Projects/ctf-private/wackattack-2025/Game/Under The Sea/wackworld.pck
+Loaded 118 imported files
+Detected Engine Version: 4.4.1
+Detected Bytecode Revision: 4.3.0-stable (77af6ca)
+Verified 241 files, no errors detected!
+Extracted 241 files, no errors detected!
+Saved project config.
+
+
+********************************EXPORT REPORT********************************
+
+Totals:                                 
+Decompiled scripts:                     13
+Failed scripts:                         0
+Imported resources for export session:  118
+Successfully converted:                 118
+Lossy:                                  1
+Rewrote metadata:                       93
+Non-importable conversions:             0
+Not converted:                          0
+Failed conversions:                     0
+-------------
+
+
+
+------------------------------------------------------------------------------------
+
+Use Godot editor version 4.4.1 to edit the project.
+Note: the project may be using a custom version of Godot. Detection for this has not been implemented yet.
+If you find that you have many non-import errors upon opening the project 
+(i.e. scripts or shaders have many errors), use the original game's binary as the export template.
+
+*******************************************************************************
+

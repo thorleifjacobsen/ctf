@@ -1,0 +1,5 @@
+data
+node_modules
+.gitgnore
+docker-compose.yaml
+Dockerfile

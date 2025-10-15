@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=4 uid="uid://1kr2nadn0usi"]
+
+[ext_resource type="Script" uid="uid://6nyb1qvtf2rj" path="res://scripts/target.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bxfde4dahy4xc" path="res://assets/tiles/forest_/forest_ [resources].png" id="2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t2jmu"]
+size = Vector2(14, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b37e2"]
+atlas = ExtResource("2")
+region = Rect2(112, 122, 16, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5a2r"]
+atlas = ExtResource("2")
+region = Rect2(128, 122, 16, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlbrr"]
+atlas = ExtResource("2")
+region = Rect2(144, 122, 16, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kuto0"]
+atlas = ExtResource("2")
+region = Rect2(160, 122, 16, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2x57b"]
+atlas = ExtResource("2")
+region = Rect2(96, 122, 16, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bu876"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b37e2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5a2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlbrr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kuto0")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2x57b")
+}],
+"loop": true,
+"name": &"no_fire",
+"speed": 5.0
+}]
+
+[node name="Target" type="Area2D"]
+script = ExtResource("1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.57628e-07, 0.5)
+scale = Vector2(1, 0.983694)
+shape = SubResource("RectangleShape2D_t2jmu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bu876")
+animation = &"fire"
+frame_progress = 0.58351
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

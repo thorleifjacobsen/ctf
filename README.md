@@ -4,9 +4,11 @@ Here is a quick overview over the CTF's documented here. `DNF` means I did not f
 
 My nickname is usually `Toffe` but in some cases I might be creative or in a team.
 
-| **CTF**                              | **Date** | **Placement** | **Link**                                |
+| **CTF**                              | **Date** | **Placement** | **Link**                                 |
 |--------------------------------------|:--------:|:-------------:|------------------------------------------|
+| WackAttack                           | 2025/10  |     14th      | [Link](./bsides-krs-badge-2025)          |
 | Bsides Kristiansand Badge            | 2025/05  |     N/A       | [Link](./bsides-krs-badge-2025)          |
+| HelseCTF 2025                        | 2025/02  |     ???       | [Link](./helsectf-2025)                  |
 | Nahamcon                             | 2025/05  |     1th       | [Link](./nahamcon-25)                    |
 | SAF 25 (UiA CTF)                     | 2025/03  |     1th       | [Link](./safctf-2025)                    |
 | UiTHack                              | 2025/02  |     31th      | [Link](./uithack-2025)                   |

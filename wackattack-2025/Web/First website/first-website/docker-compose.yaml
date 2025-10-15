@@ -1,0 +1,8 @@
+services:
+  challenge:
+    build: 
+      context: .
+      args:
+        FLAG: "wack{}"
+    ports:
+      - "8080:8080"

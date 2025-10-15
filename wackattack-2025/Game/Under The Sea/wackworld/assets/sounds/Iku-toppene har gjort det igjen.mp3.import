@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cpj07kqg50rd2"
+path="res://.godot/imported/Iku-toppene har gjort det igjen.mp3-e6c18e78dcdd02048ecdbf1081b84fd8.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/Iku-toppene har gjort det igjen.mp3"
+dest_files=["res://.godot/imported/Iku-toppene har gjort det igjen.mp3-e6c18e78dcdd02048ecdbf1081b84fd8.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

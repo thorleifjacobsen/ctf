@@ -1,0 +1,15 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://q6t5tdmnvs7b"
+path="res://.godot/imported/small_pixel.ttf-3032a2e6c485451d355ec32f0b1ebdaf.fontdata"
+
+[deps]
+
+source_file="res://assets/fonts/small_pixel.ttf"
+dest_files=["res://.godot/imported/small_pixel.ttf-3032a2e6c485451d355ec32f0b1ebdaf.fontdata"]
+
+[params]
+
+dummy_value_ignore_me=0

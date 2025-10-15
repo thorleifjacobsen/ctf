@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>WackCorp — Job Application</title>
+  <style>
+    body { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:#f6f8fa; color:#111; margin:0; padding:2rem; }
+    .card { max-width:760px; margin:1rem auto; background:#fff; border-radius:8px; box-shadow:0 6px 18px rgba(20,24,30,0.08); padding:1.6rem; }
+    h1 { margin:0 0 0.5rem 0; font-size:1.4rem; }
+    p.lead { margin:0 0 1rem 0; color:#555; }
+    form { display:flex; gap:.6rem; align-items:flex-start; flex-wrap:wrap; }
+    .col { flex:1 1 220px; min-width:220px; }
+    input[type="text"], input[type="email"], input[type="url"], select, textarea {
+      width:100%; padding:.6rem .8rem; border:1px solid #ddd; border-radius:6px; font-size:1rem;
+    }
+    textarea { min-height:120px; resize:vertical; }
+    .actions { display:flex; gap:.6rem; width:100%; margin-top:.4rem; }
+    button { padding:.6rem 1rem; border:0; background:#0b5fff; color:#fff; border-radius:6px; cursor:pointer; font-weight:600; }
+    .result { margin-top:1.2rem; padding:.9rem; background:#f3f7ff; border:1px solid #e6eeff; border-radius:6px; }
+    .meta { color:#333; font-weight:600; }
+    .small { color:#666; font-size:.9rem; margin-top:.6rem; }
+    label.small-label { display:block; color:#444; font-weight:600; margin-bottom:.25rem; font-size:.95rem; }
+    footer { text-align:center; margin-top:1rem; color:#888; font-size:.85rem; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Apply to WackCorp</h1>
+    <p class="lead">We're hiring bright, curious people. Fill out the form below and we'll review your application.</p>
+
+    <form method="POST" action="/register" autocomplete="off">
+      <div class="col">
+        <label class="small-label" for="address">Email address</label>
+        <input type="email" name="address" placeholder="you@example.com" required />
+      </div>
+
+      <div class="col">
+        <label class="small-label" for="linkedin">LinkedIn profile</label>
+        <input type="url" name="linkedin" placeholder="https://www.linkedin.com/in/your-profile" />
+      </div>
+
+      <div class="actions">
+        <button type="submit">Submit Application</button>
+        <button type="reset" style="background:#e6eefc; color:#0b5fff;">Reset</button>
+      </div>
+    </form>
+
+    {{if .Address}}
+    <div class="result" role="status" aria-live="polite">
+      <p>Thanks — your application is received and you're on the waitlist.</p>
+      <p class="small">LinkedIn: <a href="{{.LinkedIn}}" target="_blank" rel="noopener noreferrer" id="linkedin">LinkedIn Profile</a></p>
+      <p class="small">Registered email: <span class="meta">{{.Address}}</span></p>
+      <p class="small">Your position in line: <span class="meta">{{.Id}}</span></p>
+    </div>
+    {{end}}
+
+    <p class="small">We only use your contact details to reach out about your application. No spam.</p>
+  </div>
+
+</body>
+</html>

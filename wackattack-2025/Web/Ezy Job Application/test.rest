@@ -1,0 +1,6 @@
+
+
+POST http://13.49.221.255/register
+Content-Type: application/x-www-form-urlencoded
+
+email=per@per.com&linkedin=https://www.linkedin.com/profile
