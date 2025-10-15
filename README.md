@@ -12,6 +12,7 @@ My nickname is usually `Toffe` but in some cases I might be creative or in a tea
 | Nahamcon                             | 2025/05  |     1th       | [Link](./nahamcon-25)                    |
 | SAF 25 (UiA CTF)                     | 2025/03  |     1th       | [Link](./safctf-2025)                    |
 | UiTHack                              | 2025/02  |     31th      | [Link](./uithack-2025)                   |
+| Telenor.                             | 2024/10  |     ???       | [Link](./telenor-2024)                   |
 | WackAttack                           | 2024/10  |     8th       | [Link](./wackattack-2024)                |
 | 1753ctf                              | 2024/03  |     21th      | [Link](./1753ctf-2024)                   |
 | SAK 24 (UiA CTF)                     | 2024/02  |     1th       | [Link](./sakctf-2024)                    |

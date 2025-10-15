@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  visit_bot:
+    build: visitor-bot/
+    ports:
+      - "80:8000"
+    networks:
+      - visit-flag-net
+
+  visit_internal:
+    build: internal-server/
+    networks:
+      - visit-flag-net
+    environment:
+        - FLAG=...
+
+networks:
+  visit-flag-net:
+    driver: bridge
